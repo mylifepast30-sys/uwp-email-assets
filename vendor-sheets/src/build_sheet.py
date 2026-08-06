@@ -301,8 +301,8 @@ NOTES = '''
     <div class="nt">
       <h4>Ship to</h4>
       <p>Unique Wood Products · 9915 Tanner Road<br>
-         Houston, TX 77041 &nbsp;·&nbsp; Attn: Andy Tong<br>
-         Return completed sheet to <b>orders@uniquewoodproducts.com</b></p>
+         Houston, TX 77041<br>
+         T 713.462.5045 &nbsp;·&nbsp; F 713.462.5086</p>
     </div>
   </section>'''
 
@@ -407,7 +407,7 @@ body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color
 /* ---------- header ---------- */
 .ph{display:flex;justify-content:space-between;align-items:flex-start;
     border-bottom:2.5px solid #104A4E;padding-bottom:11px;margin-bottom:13px}
-.ph-l{display:flex;flex-direction:column;gap:7px}
+.ph-l{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
 .logo{height:62px;width:auto;display:block}
 .ph-tag{font-size:7.4px;letter-spacing:.15em;color:#5C6D6C;text-transform:uppercase;white-space:nowrap}
 .ph-r{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
