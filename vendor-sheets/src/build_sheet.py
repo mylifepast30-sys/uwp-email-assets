@@ -28,12 +28,13 @@ def svg_eased():
       fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_retro_bull():
-    # 1" nose, 5/8" body
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M22 8 H46 V19 H112 V33 H46 V36 H22 A14 14 0 0 1 22 8 Z"
+    # 1" nose drops below a top-flush 5/8" body; nose fully bullnosed
+    return """<svg viewBox="0 0 120 44" class="pf"><path d="M22 8 H112 V25.5 H46 V36 H22 A14 14 0 0 1 22 8 Z"
       fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_retro_sq():
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M12 8 H46 V19 H112 V33 H46 V36 H12 Z"
+    # same step, square nose
+    return """<svg viewBox="0 0 120 44" class="pf"><path d="M10 8 H112 V25.5 H34 V36 H10 Z"
       fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_mr():
