@@ -14,34 +14,24 @@ TEAL = "#104A4E"
 
 # ---------------------------------------------------------------- profiles
 # Side-view cross sections. Nose at left. viewBox 0 0 120 44 (thick treads)
-def svg_bullnose(s=1.0):
+def svg_bullnose():
     return """<svg viewBox="0 0 120 44" class="pf"><path d="M18 8 H112 V36 H18 A14 14 0 0 1 18 8 Z"
-      fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
-
-def svg_square():
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M10 8 H112 V36 H10 Z"
-      fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
+      fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_eased():
-    # 1/8" bevel top & bottom on the nose edge
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M17 8 H112 V36 H17 L10 29 V15 Z"
-      fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
+    # 1/8" bevel on the TOP nose edge only; bottom stays square
+    return """<svg viewBox="0 0 120 44" class="pf"><path d="M15 8 H112 V36 H10 V13 Z"
+      fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_retro_bull():
     # 1" nose drops below a top-flush 5/8" body; nose fully bullnosed
     return """<svg viewBox="0 0 120 44" class="pf"><path d="M22 8 H112 V25.5 H46 V36 H22 A14 14 0 0 1 22 8 Z"
-      fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
+      fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_retro_sq():
     # same step, square nose
     return """<svg viewBox="0 0 120 44" class="pf"><path d="M10 8 H112 V25.5 H34 V36 H10 Z"
-      fill="#EAF1F0" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
-
-def svg_mr():
-    # plan view: reversible 45 deg mitered return
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M8 8 H112 V36 H8 Z" fill="#EAF1F0"
-      stroke="%s" stroke-width="2.4" stroke-linejoin="round"/>
-      <path d="M8 20 L20 8 M112 20 L100 8" stroke="%s" stroke-width="2" fill="none" opacity=".55"/></svg>""" % (TEAL, TEAL)
+      fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 # ---------------------------------------------------------------- data
 # (sku, size, species, profile-label)
@@ -77,56 +67,32 @@ FAMILIES = [
             ]),
         ]),
     dict(
-        code="8072", name="SQUARE EDGE", art=svg_square(),
-        spec='Square nosing, eased 1/16" arris &nbsp;·&nbsp; 1-1/32" thick &nbsp;·&nbsp; 11-1/2" depth',
+        code="8072", name="EASED EDGE", art=svg_eased(),
+        spec='1/8" bevel on the top nose edge only, bottom left square'
+             ' &nbsp;·&nbsp; 1-1/32" thick &nbsp;·&nbsp; 11-1/2" depth',
+        keydim='1/8" bevel, top edge only',
         wrap=False,
         groups=[
             ("RED OAK", [
-                ("8072RO42",  '1-1/32" × 11-1/2" × 42"', "Red Oak", "Square"),
-                ("8072RO48",  '1-1/32" × 11-1/2" × 48"', "Red Oak", "Square"),
-                ("8072RO60",  '1-1/32" × 11-1/2" × 60"', "Red Oak", "Square"),
-                ("8072RO48MR",'1-1/32" × 11-1/2" × 48"', "Red Oak", "MR · 45° Rev."),
-                ("8072RO60MR",'1-1/32" × 11-1/2" × 60"', "Red Oak", "MR · 45° Rev."),
+                ("8072RO42",  '1-1/32" × 11-1/2" × 42"', "Red Oak", "Eased Edge"),
+                ("8072RO48",  '1-1/32" × 11-1/2" × 48"', "Red Oak", "Eased Edge"),
+                ("8072RO60",  '1-1/32" × 11-1/2" × 60"', "Red Oak", "Eased Edge"),
+                ("8072RO48MR",'1-1/32" × 11-1/2" × 48"', "Red Oak", "EE · MR 45° Rev."),
+                ("8072RO60MR",'1-1/32" × 11-1/2" × 60"', "Red Oak", "EE · MR 45° Rev."),
             ]),
             ("WHITE OAK", [
-                ("8072WO42",  '1-1/32" × 11-1/2" × 42"', "White Oak", "Square"),
-                ("8072WO48",  '1-1/32" × 11-1/2" × 48"', "White Oak", "Square"),
-                ("8072WO60",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Square"),
-                ("8072WO48MR",'1-1/32" × 11-1/2" × 48"', "White Oak", "MR · 45° Rev."),
-                ("8072WO60MR",'1-1/32" × 11-1/2" × 60"', "White Oak", "MR · 45° Rev."),
+                ("8072WO42",  '1-1/32" × 11-1/2" × 42"', "White Oak", "Eased Edge"),
+                ("8072WO48",  '1-1/32" × 11-1/2" × 48"', "White Oak", "Eased Edge"),
+                ("8072WO60",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Eased Edge"),
+                ("8072WO48MR",'1-1/32" × 11-1/2" × 48"', "White Oak", "EE · MR 45° Rev."),
+                ("8072WO60MR",'1-1/32" × 11-1/2" × 60"', "White Oak", "EE · MR 45° Rev."),
             ]),
             ("WIDE TREADS &amp; PLATFORM LANDINGS", [
-                ("807220RO48",  '1-1/32" × 22" × 48"', "Red Oak",   "Square · Wide"),
-                ("807230RO60",  '1-1/32" × 30" × 60"', "Red Oak",   "Square · Wide"),
-                ("807230WO60",  '1-1/32" × 30" × 60"', "White Oak", "Square · Wide"),
-                ("807248RO48",  '1-1/32" × 48" × 48"', "Red Oak",   "Square · Landing"),
-                ("807248WO48",  '1-1/32" × 48" × 48"', "White Oak", "Square · Landing"),
-            ]),
-        ]),
-    dict(
-        code="8072 EE", name="EASED EDGE", art=svg_eased(),
-        spec='1" eased edge, 1/8" bevel &nbsp;·&nbsp; 1-1/32" thick &nbsp;·&nbsp; 11-1/2" depth',
-        wrap=False, isnew=True,
-        groups=[
-            ("RED OAK", [
-                ("8072RO42EE",  '1-1/32" × 11-1/2" × 42"', "Red Oak", "Eased Edge"),
-                ("8072RO48EE",  '1-1/32" × 11-1/2" × 48"', "Red Oak", "Eased Edge"),
-                ("8072RO60EE",  '1-1/32" × 11-1/2" × 60"', "Red Oak", "Eased Edge"),
-                ("8072RO48MREE",'1-1/32" × 11-1/2" × 48"', "Red Oak", "EE · MR 45° Rev."),
-                ("8072RO60MREE",'1-1/32" × 11-1/2" × 60"', "Red Oak", "EE · MR 45° Rev."),
-            ]),
-            ("WHITE OAK", [
-                ("8072WO42EE",  '1-1/32" × 11-1/2" × 42"', "White Oak", "Eased Edge"),
-                ("8072WO48EE",  '1-1/32" × 11-1/2" × 48"', "White Oak", "Eased Edge"),
-                ("8072WO60EE",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Eased Edge"),
-                ("8072WO48MREE",'1-1/32" × 11-1/2" × 48"', "White Oak", "EE · MR 45° Rev."),
-                ("8072WO60MREE",'1-1/32" × 11-1/2" × 60"', "White Oak", "EE · MR 45° Rev."),
-            ]),
-            ("WIDE TREADS &amp; PLATFORM LANDINGS", [
-                ("807230RO60EE", '1-1/32" × 30" × 60"', "Red Oak",   "EE · Wide"),
-                ("807230WO60EE", '1-1/32" × 30" × 60"', "White Oak", "EE · Wide"),
-                ("807248RO48EE", '1-1/32" × 48" × 48"', "Red Oak",   "EE · Landing"),
-                ("807248WO48EE", '1-1/32" × 48" × 48"', "White Oak", "EE · Landing"),
+                ("807220RO48",  '1-1/32" × 22" × 48"', "Red Oak",   "EE · Wide"),
+                ("807230RO60",  '1-1/32" × 30" × 60"', "Red Oak",   "EE · Wide"),
+                ("807230WO60",  '1-1/32" × 30" × 60"', "White Oak", "EE · Wide"),
+                ("807248RO48",  '1-1/32" × 48" × 48"', "Red Oak",   "EE · Landing"),
+                ("807248WO48",  '1-1/32" × 48" × 48"', "White Oak", "EE · Landing"),
             ]),
         ]),
     dict(
@@ -292,7 +258,7 @@ def profile_key():
     for f in FAMILIES:
         tag = '<b class="pk-new">NEW</b>' if f.get("isnew") else (
               '<b class="pk-wrap">&#9635;</b>' if f.get("wrap") else "")
-        dim = f["spec"].split("&nbsp;·&nbsp;")[0]
+        dim = f.get("keydim") or f["spec"].split("&nbsp;·&nbsp;")[0]
         cells.append(
             '<div class="pk"><div class="pk-art">' + f["art"] + '</div>'
             '<div class="pk-code">' + f["code"] + tag + '</div>'
@@ -322,7 +288,7 @@ NOTES = '''
   <section class="notes">
     <div class="nt">
       <h4>Abbreviations</h4>
-      <p><b>EE</b> — Eased Edge, 1/8" bevel<br>
+      <p><b>EE</b> — Eased Edge, 1/8" bevel on the top edge only<br>
          <b>MR</b> — Miter Return, 45°, reversible left/right<br>
          <b>Wide</b> — extra-depth tread &nbsp;·&nbsp; <b>Landing</b> — platform tread<br>
          <b>&#9635;</b> — plastic wrap required (8071 / 8073)</p>
@@ -472,12 +438,9 @@ body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color
 .parties{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:0}
 .pt{border:1px solid #DCE3E2;border-radius:3px;overflow:hidden}
 .pt-cap{font-size:7.2px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
-        padding:5px 8px;display:flex;align-items:center;gap:6px}
-.pt-cap i{width:6px;height:6px;border-radius:50%;display:block}
-.pt-uwp .pt-cap{background:#EDF4F3;color:#104A4E}
-.pt-uwp .pt-cap i{background:#104A4E}
-.pt-den .pt-cap{background:#F4F1EC;color:#6B5B44}
-.pt-den .pt-cap i{background:#8A7355}
+        padding:5px 8px;border-bottom:1px solid #E3E8E7;color:#5C6D6C}
+.pt-cap i{display:none}
+.pt-uwp .pt-cap{color:#104A4E}
 .pt-body{padding:7px 8px 8px}
 .pt-name{font-size:11px;font-weight:700;letter-spacing:.05em;color:#111A1D}
 .pt-addr{font-size:8.2px;line-height:1.5;color:#5C6D6C;margin-top:2px}
@@ -488,26 +451,26 @@ body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color
           border-bottom:1px solid #C9D3D2;min-height:14px;padding-top:2px}
 
 .howto{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:9px 0 9px;
-       padding:5px 9px;background:#F7FAF9;border:1px solid #E3EBEA;border-radius:3px;
+       padding:5px 0;border-top:1px solid #E3E8E7;border-bottom:1px solid #E3E8E7;
        font-size:7.6px;color:#5C6D6C}
 .howto b{font-weight:700;letter-spacing:.06em}
 .ht-l{color:#104A4E;white-space:nowrap}
-.ht-r{color:#6B5B44;white-space:nowrap}
+.ht-r{color:#111A1D;white-space:nowrap}
 .ht-c{text-align:center;flex:1}
 
 /* ---------- profile key ---------- */
 .pkey{margin:0 0 3px}
 .pk-cap{font-size:6.8px;letter-spacing:.24em;color:#9AA8A7;text-transform:uppercase;font-weight:600;
         margin-bottom:5px}
-.pk-row{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.pk{border:1px solid #E3EBEA;border-radius:3px;padding:7px 8px 8px;background:#FCFDFD}
+.pk-row{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px}
+.pk{border:1px solid #E3EBEA;border-radius:3px;padding:7px 8px 8px}
 .pk-art{margin-bottom:4px}
 .pk svg.pf{width:60px;height:22px}
 .pk-code{font-size:9.5px;font-weight:700;color:#104A4E;letter-spacing:.04em;
          display:flex;align-items:center;gap:5px}
 .pk-new{background:#104A4E;color:#fff;font-size:5.6px;font-weight:700;letter-spacing:.12em;
         padding:1.5px 4px;border-radius:2px}
-.pk-wrap{color:#B08A3E;font-size:8px}
+.pk-wrap{color:#8B9998;font-size:8px}
 .pk-name{font-size:6.6px;letter-spacing:.13em;text-transform:uppercase;color:#111A1D;font-weight:600;
          margin-top:2px}
 .pk-dim{font-size:6.8px;color:#8B9998;margin-top:2px;line-height:1.35}
@@ -519,9 +482,9 @@ tr.hd th{font-size:7px;letter-spacing:.11em;text-transform:uppercase;color:#fff;
          padding:5px 7px 6px;text-align:left;font-weight:600;vertical-align:bottom}
 tr.hd th small{display:block;font-size:5.8px;letter-spacing:.18em;font-weight:700;
                opacity:.62;margin-bottom:2px}
-tr.hd th.c-qty{background:#0C3A3D;text-align:center}
-tr.hd th.c-stock{background:#5F4E3A;text-align:center;padding-right:0}
-tr.hd th.c-price{background:#5F4E3A;text-align:center;padding-left:0}
+tr.hd th.c-qty{text-align:center}
+tr.hd th.c-stock{text-align:center;padding-right:0}
+tr.hd th.c-price{text-align:center;padding-left:0}
 tr.hd th.c-sp,tr.hd th.c-prof{text-align:left}
 
 tr.fam td{padding:12px 0 5px}
@@ -534,9 +497,7 @@ svg.pf{width:70px;height:26px;display:block}
 .famname b{font-weight:700}
 .famsep{display:inline-block;width:16px;height:1px;background:#B7C6C5;margin:0 8px}
 .famspec{font-size:7.8px;color:#7A8988;margin-top:1.5px;letter-spacing:.03em}
-.badge-new{margin-left:9px;background:#104A4E;color:#fff;font-size:6.4px;font-weight:700;
-           letter-spacing:.14em;padding:2px 6px;border-radius:2px}
-.badge-wrap{margin-left:7px;background:#F3EAD9;color:#7A5B22;border:1px solid #E0CDA6;font-size:6.4px;
+.badge-wrap{margin-left:9px;color:#5C6D6C;border:1px solid #C9D3D2;font-size:6.4px;
             font-weight:700;letter-spacing:.12em;padding:1.5px 6px;border-radius:2px}
 
 tr.grp td{font-size:6.8px;letter-spacing:.17em;text-transform:uppercase;color:#94A2A1;
@@ -549,33 +510,31 @@ tr.grp td{font-size:6.8px;letter-spacing:.17em;text-transform:uppercase;color:#9
 .c-size{color:#5C6D6C;font-variant-numeric:tabular-nums}
 .c-sp{color:#5C6D6C}
 .c-prof{color:#5C6D6C;font-size:8px}
-td.c-qty{background:#F2F7F6;border-left:2px solid #104A4E;border-bottom:1px solid #DFE9E8}
-td.c-stock{background:#FAF7F1;border-left:2px solid #8A7355;border-bottom:1px solid #EBE3D5;
-           border-right:1px solid #E6DCC9}
-td.c-price{background:#FAF7F1;border-right:2px solid #8A7355;border-bottom:1px solid #EBE3D5;
-           text-align:left;color:#B3A48D;font-weight:600}
-tr.fam td.c-qty,tr.grp td.c-qty{background:none;border-left:none}
-.wmark{color:#B08A3E;font-size:7px;margin-left:5px;vertical-align:1px}
+td.c-qty{border-right:1px solid #DCE3E2}
+td.c-stock{border-left:1px solid #DCE3E2;border-right:1px solid #EDF1F0}
+td.c-price{text-align:left;color:#C6CFCE;font-weight:600}
+tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
+.wmark{color:#8B9998;font-size:7px;margin-left:5px;vertical-align:1px}
 
 /* ---------- wrap note ---------- */
 .wrapnote{display:flex;gap:11px;align-items:flex-start;margin-top:13px;padding:10px 12px;
-          background:#FBF6EC;border:1px solid #E3D3B0;border-left:3px solid #B08A3E;border-radius:3px}
-.wn-icon{font-size:15px;color:#B08A3E;line-height:1}
-.wn-h{font-size:9px;font-weight:700;letter-spacing:.11em;color:#7A5B22;text-transform:uppercase}
-.wn-body p{font-size:8.2px;line-height:1.55;color:#6B5B44;margin-top:3px}
-.wn-body b{color:#5A4519}
-.wn-price{margin-top:5px !important;padding-top:5px;border-top:1px solid #E3D3B0}
+          border:1px solid #DCE3E2;border-left:2.5px solid #104A4E;border-radius:3px}
+.wn-icon{font-size:15px;color:#104A4E;line-height:1}
+.wn-h{font-size:9px;font-weight:700;letter-spacing:.11em;color:#104A4E;text-transform:uppercase}
+.wn-body p{font-size:8.2px;line-height:1.55;color:#5C6D6C;margin-top:3px}
+.wn-body b{color:#111A1D}
+.wn-price{margin-top:5px !important;padding-top:5px;border-top:1px solid #E3E8E7}
 
 /* freight confirm */
-.tm-confirm{border-top:1px solid #EDE7DC;padding:8px 9px 9px;display:grid;
+.tm-confirm{border-top:1px solid #E3E8E7;padding:8px 9px 9px;display:grid;
             grid-template-columns:1fr 1fr;gap:14px;align-items:center}
-.tmc{font-size:7.8px;color:#6B5B44;line-height:1.5}
-.tmc b{color:#5A4519}
+.tmc{font-size:7.8px;color:#5C6D6C;line-height:1.5}
+.tmc b{color:#111A1D}
 .yn{display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:7.4px;
-    letter-spacing:.1em;font-weight:700;color:#6B5B44}
-.yn i{display:inline-block;width:11px;height:11px;border:1px solid #B9A483;background:#fff;
+    letter-spacing:.1em;font-weight:700;color:#5C6D6C}
+.yn i{display:inline-block;width:11px;height:11px;border:1px solid #B3BFBE;
       border-radius:2px;vertical-align:-2px}
-.tmc-note{color:#8B7B63}
+.tmc-note{color:#8B9998}
 
 /* ---------- notes ---------- */
 .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:15px;padding-top:12px;
@@ -586,24 +545,24 @@ tr.fam td.c-qty,tr.grp td.c-qty{background:none;border-left:none}
 .nt b{color:#111A1D;font-weight:700}
 
 /* ---------- terms ---------- */
-.terms{margin-top:12px}
+.terms{margin-top:14px}
 .tm{border:1px solid #DCE3E2;border-radius:3px;overflow:hidden}
 .tm-cap{font-size:7.2px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
-        padding:5px 9px;background:#F4F1EC;color:#6B5B44}
+        padding:5px 9px;border-bottom:1px solid #E3E8E7;color:#5C6D6C}
 .tm-grid{padding:9px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px 14px}
 .tm-grid label{font-size:6.6px;letter-spacing:.11em;color:#94A2A1;text-transform:uppercase;
                display:flex;flex-direction:column;gap:1px}
-.tm-grid em{font-style:normal;font-size:9px;color:#B3A48D;font-weight:600;
+.tm-grid em{font-style:normal;font-size:9px;color:#C6CFCE;font-weight:600;
             border-bottom:1px solid #C9D3D2;min-height:17px;padding-top:2px}
-.sigs{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:22px}
+.sigs{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:60px}
 .sig-line{border-bottom:1px solid #6E7E7D;height:20px}
 .sig-cap{font-size:6.8px;letter-spacing:.13em;text-transform:uppercase;color:#5C6D6C;font-weight:700;
          margin-top:4px;display:flex;flex-direction:column;gap:1px}
 .sig-cap span{font-weight:400;letter-spacing:.04em;color:#9AA8A7;text-transform:none;font-size:7.4px}
-.sig-d .sig-cap{color:#6B5B44}
+.sig-d .sig-cap{color:#5C6D6C}
 
 /* ---------- specs ---------- */
-.specs{margin-top:15px}
+.specs{margin-top:26px}
 .specs h2{font-size:9px;letter-spacing:.22em;color:#104A4E;font-weight:700;text-transform:uppercase;
           border-bottom:1.5px solid #104A4E;padding-bottom:5px;margin-bottom:10px}
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 18px}
@@ -614,7 +573,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{background:none;border-left:none}
 .sp li:before{content:"";position:absolute;left:0;top:5.5px;width:3px;height:3px;border-radius:50%;
               background:#B7C6C5}
 .sp i{font-style:italic;color:#8B9998}
-.exempt{margin-top:11px;padding:8px 10px;background:#F7FAF9;border:1px solid #E3EBEA;border-radius:3px;
+.exempt{margin-top:11px;padding:8px 10px;border:1px solid #E3E8E7;border-radius:3px;
         font-size:7.8px;line-height:1.55;color:#5C6D6C}
 .exempt b{color:#104A4E}
 """
@@ -643,15 +602,14 @@ html = f"""<!doctype html><html><head><meta charset="utf-8">
 
 <div class="page">
   {page_head_compact("Price schedule &nbsp;·&nbsp; continued")}
-  {table([FAMILIES[1], FAMILIES[2]])}
-  {TERMS}
+  {table([FAMILIES[1], FAMILIES[2], FAMILIES[3]])}
+  {WRAP_NOTE}
   {foot(2, TOTAL)}
 </div>
 
 <div class="page">
-  {page_head_compact("Retro-fit treads &nbsp;·&nbsp; specification &amp; signatures")}
-  {table([FAMILIES[3], FAMILIES[4]])}
-  {WRAP_NOTE}
+  {page_head_compact("Freight, specification &amp; signatures")}
+  {TERMS}
   {SPECS}
   {SIGS}
   {foot(3, TOTAL)}
