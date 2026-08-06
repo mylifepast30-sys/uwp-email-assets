@@ -69,6 +69,8 @@ FAMILIES = [
             ]),
             ("WIDE TREADS &amp; PLATFORM LANDINGS", [
                 ("807020RO48", '1-1/32" × 20" × 48"', "Red Oak",   "Bullnose · Wide"),
+                ("807030RO60", '1-1/32" × 30" × 60"', "Red Oak",   "Bullnose · Wide"),
+                ("807030WO60", '1-1/32" × 30" × 60"', "White Oak", "Bullnose · Wide"),
                 ("807048RO48", '1-1/32" × 48" × 48"', "Red Oak",   "Bullnose · Landing"),
                 ("807048WO48", '1-1/32" × 48" × 48"', "White Oak", "Bullnose · Landing"),
             ]),
@@ -118,6 +120,12 @@ FAMILIES = [
                 ("8072WO60EE",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Eased Edge"),
                 ("8072WO48MREE",'1-1/32" × 11-1/2" × 48"', "White Oak", "EE · MR 45° Rev."),
                 ("8072WO60MREE",'1-1/32" × 11-1/2" × 60"', "White Oak", "EE · MR 45° Rev."),
+            ]),
+            ("WIDE TREADS &amp; PLATFORM LANDINGS", [
+                ("807230RO60EE", '1-1/32" × 30" × 60"', "Red Oak",   "EE · Wide"),
+                ("807230WO60EE", '1-1/32" × 30" × 60"', "White Oak", "EE · Wide"),
+                ("807248RO48EE", '1-1/32" × 48" × 48"', "Red Oak",   "EE · Landing"),
+                ("807248WO48EE", '1-1/32" × 48" × 48"', "White Oak", "EE · Landing"),
             ]),
         ]),
     dict(
