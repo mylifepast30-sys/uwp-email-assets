@@ -18,9 +18,8 @@ def svg_bullnose():
     return """<svg viewBox="0 0 120 44" class="pf"><path d="M18 8 H112 V36 H18 A14 14 0 0 1 18 8 Z"
       fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
-def svg_eased():
-    # 1/8" bevel on the TOP nose edge only; bottom stays square
-    return """<svg viewBox="0 0 120 44" class="pf"><path d="M15 8 H112 V36 H10 V13 Z"
+def svg_square():
+    return """<svg viewBox="0 0 120 44" class="pf"><path d="M10 8 H112 V36 H10 Z"
       fill="none" stroke="%s" stroke-width="2.4" stroke-linejoin="round"/></svg>""" % TEAL
 
 def svg_retro_bull():
@@ -67,32 +66,32 @@ FAMILIES = [
             ]),
         ]),
     dict(
-        code="8072", name="EASED EDGE", art=svg_eased(),
-        spec='1/8" bevel on the top nose edge only, bottom left square'
+        code="8072", name="SQUARE EDGE", art=svg_square(),
+        spec='Square nosing, eased 1/16" arris'
              ' &nbsp;·&nbsp; 1-1/32" thick &nbsp;·&nbsp; 11-1/2" depth',
-        keydim='1/8" bevel, top edge only',
+        keydim='Square nosing, 1/16" arris',
         wrap=False,
         groups=[
             ("RED OAK", [
-                ("8072RO42",  '1-1/32" × 11-1/2" × 42"', "Red Oak", "Eased Edge"),
-                ("8072RO48",  '1-1/32" × 11-1/2" × 48"', "Red Oak", "Eased Edge"),
-                ("8072RO60",  '1-1/32" × 11-1/2" × 60"', "Red Oak", "Eased Edge"),
-                ("8072RO48MR",'1-1/32" × 11-1/2" × 48"', "Red Oak", "EE · MR 45° Rev."),
-                ("8072RO60MR",'1-1/32" × 11-1/2" × 60"', "Red Oak", "EE · MR 45° Rev."),
+                ("8072RO42",  '1-1/32" × 11-1/2" × 42"', "Red Oak", "Square"),
+                ("8072RO48",  '1-1/32" × 11-1/2" × 48"', "Red Oak", "Square"),
+                ("8072RO60",  '1-1/32" × 11-1/2" × 60"', "Red Oak", "Square"),
+                ("8072RO48MR",'1-1/32" × 11-1/2" × 48"', "Red Oak", "MR · 45° Rev."),
+                ("8072RO60MR",'1-1/32" × 11-1/2" × 60"', "Red Oak", "MR · 45° Rev."),
             ]),
             ("WHITE OAK", [
-                ("8072WO42",  '1-1/32" × 11-1/2" × 42"', "White Oak", "Eased Edge"),
-                ("8072WO48",  '1-1/32" × 11-1/2" × 48"', "White Oak", "Eased Edge"),
-                ("8072WO60",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Eased Edge"),
-                ("8072WO48MR",'1-1/32" × 11-1/2" × 48"', "White Oak", "EE · MR 45° Rev."),
-                ("8072WO60MR",'1-1/32" × 11-1/2" × 60"', "White Oak", "EE · MR 45° Rev."),
+                ("8072WO42",  '1-1/32" × 11-1/2" × 42"', "White Oak", "Square"),
+                ("8072WO48",  '1-1/32" × 11-1/2" × 48"', "White Oak", "Square"),
+                ("8072WO60",  '1-1/32" × 11-1/2" × 60"', "White Oak", "Square"),
+                ("8072WO48MR",'1-1/32" × 11-1/2" × 48"', "White Oak", "MR · 45° Rev."),
+                ("8072WO60MR",'1-1/32" × 11-1/2" × 60"', "White Oak", "MR · 45° Rev."),
             ]),
             ("WIDE TREADS &amp; PLATFORM LANDINGS", [
-                ("807220RO48",  '1-1/32" × 22" × 48"', "Red Oak",   "EE · Wide"),
-                ("807230RO60",  '1-1/32" × 30" × 60"', "Red Oak",   "EE · Wide"),
-                ("807230WO60",  '1-1/32" × 30" × 60"', "White Oak", "EE · Wide"),
-                ("807248RO48",  '1-1/32" × 48" × 48"', "Red Oak",   "EE · Landing"),
-                ("807248WO48",  '1-1/32" × 48" × 48"', "White Oak", "EE · Landing"),
+                ("807220RO48",  '1-1/32" × 22" × 48"', "Red Oak",   "Square · Wide"),
+                ("807230RO60",  '1-1/32" × 30" × 60"', "Red Oak",   "Square · Wide"),
+                ("807230WO60",  '1-1/32" × 30" × 60"', "White Oak", "Square · Wide"),
+                ("807248RO48",  '1-1/32" × 48" × 48"', "Red Oak",   "Square · Landing"),
+                ("807248WO48",  '1-1/32" × 48" × 48"', "White Oak", "Square · Landing"),
             ]),
         ]),
     dict(
@@ -288,8 +287,7 @@ NOTES = '''
   <section class="notes">
     <div class="nt">
       <h4>Abbreviations</h4>
-      <p><b>EE</b> — Eased Edge, 1/8" bevel on the top edge only<br>
-         <b>MR</b> — Miter Return, 45°, reversible left/right<br>
+      <p><b>MR</b> — Miter Return, 45°, reversible left/right<br>
          <b>Wide</b> — extra-depth tread &nbsp;·&nbsp; <b>Landing</b> — platform tread<br>
          <b>&#9635;</b> — plastic wrap required (8071 / 8073)</p>
     </div>
