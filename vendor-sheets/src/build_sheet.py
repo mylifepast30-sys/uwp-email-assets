@@ -158,7 +158,7 @@ def render_family(f):
     if f.get("wrap"):
         badge += '<span class="badge-wrap">WRAP REQ\'D</span>'
     rows.append(f'''
-    <tr class="fam"><td colspan="6">
+    <tr class="fam"><td colspan="7">
       <div class="famrow">
         <div class="famart">{f["art"]}</div>
         <div class="famtxt">
@@ -168,7 +168,7 @@ def render_family(f):
       </div>
     </td></tr>''')
     for gname, items in f["groups"]:
-        rows.append(f'<tr class="grp"><td colspan="6">{gname}</td></tr>')
+        rows.append(f'<tr class="grp"><td colspan="7">{gname}</td></tr>')
         for sku, size, sp, prof in items:
             mark = '<span class="wmark">▣</span>' if f.get("wrap") else ""
             rows.append(f'''
@@ -178,6 +178,7 @@ def render_family(f):
         <td class="c-size">{size}</td>
         <td class="c-sp">{sp}</td>
         <td class="c-prof">{prof}</td>
+        <td class="c-stock"></td>
         <td class="c-price"><span class="dol">$</span></td>
       </tr>''')
     return "".join(rows)
@@ -187,8 +188,9 @@ def table(families, cont=False):
     head = f'''
   <table class="items">
     <colgroup>
-      <col style="width:62px"><col style="width:104px"><col>
-      <col style="width:70px"><col style="width:112px"><col style="width:86px">
+      <col style="width:60px"><col style="width:102px"><col>
+      <col style="width:66px"><col style="width:100px">
+      <col style="width:62px"><col style="width:80px">
     </colgroup>
     <thead>
       <tr class="hd">
@@ -197,7 +199,8 @@ def table(families, cont=False):
         <th class="c-size">SIZE &nbsp;(THK × DEPTH × LENGTH)</th>
         <th class="c-sp">SPECIES</th>
         <th class="c-prof">PROFILE</th>
-        <th class="c-price"><small>DENDRATEC</small>UNIT $/EA</th>
+        <th class="c-stock"><small>DENDRATEC</small>IN STOCK</th>
+        <th class="c-price"><small>&nbsp;</small>UNIT $/EA</th>
       </tr>
     </thead>
     <tbody>{"".join(render_family(f) for f in families)}</tbody>
@@ -271,7 +274,7 @@ PARTIES = f'''
   <div class="howto">
     <span class="ht-l">◀ &nbsp;<b>ANDY</b> enters quantity</span>
     <span class="ht-c">All pricing <b>UNFINISHED</b> and truckload. Quote every line or mark <b>N/A</b>. Freight terms on page 2.</span>
-    <span class="ht-r"><b>DENDRATEC</b> enters unit price&nbsp; ▶</span>
+    <span class="ht-r"><b>DENDRATEC</b> enters stock on hand + unit price&nbsp; ▶</span>
   </div>'''
 
 
@@ -294,11 +297,14 @@ WRAP_NOTE = '''
   <section class="wrapnote">
     <div class="wn-icon">▣</div>
     <div class="wn-body">
-      <div class="wn-h">8071 &amp; 8073 RETRO-FIT — PLASTIC WRAP REQUIRED</div>
+      <div class="wn-h">8071 &amp; 8073 RETRO-FIT — PLASTIC WRAP REQUIRED, PRICED IN</div>
       <p>The 5/8" body on 8071 and 8073 cups in Houston humidity. Every 8071 and 8073 tread must ship
       <b>fully wrapped in plastic</b> — 4-side enclosure, min. 6 mil, with a continuous vapor sheet above and
       below each pallet layer. No exposed end grain, no partial wraps, no outdoor staging. End-coat all
       lengths 60" and over. UWP will reject at receiving for visible cupping, face checking, or MC variance.</p>
+      <p class="wn-price"><b>Plastic wrap must be included in the unit price quoted on this sheet.</b>
+      Do not quote it as a separate adder or leave it out to reach a target price — a price without wrap
+      will not be accepted for these two profiles.</p>
     </div>
   </section>'''
 
@@ -316,7 +322,8 @@ NOTES = '''
       <h4>Pricing basis</h4>
       <p>Truckload (FTL) volume, <b>unfinished</b> only, USD per each.<br>
          Price every line or mark <b>N/A</b>. Note substitutes where a size is unavailable.<br>
-         Hold pricing firm through the Quote Valid Until date.</p>
+         <b>8071 / 8073 prices must include plastic wrap.</b><br>
+         Lead time <b>3–5 weeks</b>, up to 6 when busy.</p>
     </div>
     <div class="nt">
       <h4>Ship to</h4>
@@ -333,11 +340,19 @@ TERMS = '''
       <div class="tm-cap">FREIGHT &amp; LEAD TIME — Dendratec completes</div>
       <div class="tm-grid">
         <label>FULL TRUCKLOAD (FTL) RATE TO HOUSTON, TX 77041<em>$</em></label>
-        <label>MANUFACTURING LEAD TIME (DAYS)<em></em></label>
+        <label>LEAD TIME THIS ORDER (WEEKS)<em></em></label>
         <label>TRANSIT DAYS TO HOUSTON<em></em></label>
         <label>FOB TERMS (ORIGIN / DESTINATION)<em></em></label>
         <label>PIECES PER BUNDLE<em></em></label>
         <label>PAYMENT TERMS OFFERED<em></em></label>
+      </div>
+      <div class="tm-confirm">
+        <div class="tmc">
+          <b>Plastic wrap for 8071 / 8073 included in the unit prices above?</b>
+          <span class="yn">YES <i></i> &nbsp;&nbsp; NO <i></i></span>
+        </div>
+        <div class="tmc tmc-note">Standing lead time agreed with Dendratec: <b>3–5 weeks, up to 6 when
+          busy.</b> Note above if this order runs longer.</div>
       </div>
     </div>
   </section>'''
@@ -496,7 +511,8 @@ tr.hd th{font-size:7px;letter-spacing:.11em;text-transform:uppercase;color:#fff;
 tr.hd th small{display:block;font-size:5.8px;letter-spacing:.18em;font-weight:700;
                opacity:.62;margin-bottom:2px}
 tr.hd th.c-qty{background:#0C3A3D;text-align:center}
-tr.hd th.c-price{background:#5F4E3A;text-align:center}
+tr.hd th.c-stock{background:#5F4E3A;text-align:center;padding-right:0}
+tr.hd th.c-price{background:#5F4E3A;text-align:center;padding-left:0}
 tr.hd th.c-sp,tr.hd th.c-prof{text-align:left}
 
 tr.fam td{padding:12px 0 5px}
@@ -525,6 +541,8 @@ tr.grp td{font-size:6.8px;letter-spacing:.17em;text-transform:uppercase;color:#9
 .c-sp{color:#5C6D6C}
 .c-prof{color:#5C6D6C;font-size:8px}
 td.c-qty{background:#F2F7F6;border-left:2px solid #104A4E;border-bottom:1px solid #DFE9E8}
+td.c-stock{background:#FAF7F1;border-left:2px solid #8A7355;border-bottom:1px solid #EBE3D5;
+           border-right:1px solid #E6DCC9}
 td.c-price{background:#FAF7F1;border-right:2px solid #8A7355;border-bottom:1px solid #EBE3D5;
            text-align:left;color:#B3A48D;font-weight:600}
 tr.fam td.c-qty,tr.grp td.c-qty{background:none;border-left:none}
@@ -537,6 +555,18 @@ tr.fam td.c-qty,tr.grp td.c-qty{background:none;border-left:none}
 .wn-h{font-size:9px;font-weight:700;letter-spacing:.11em;color:#7A5B22;text-transform:uppercase}
 .wn-body p{font-size:8.2px;line-height:1.55;color:#6B5B44;margin-top:3px}
 .wn-body b{color:#5A4519}
+.wn-price{margin-top:5px !important;padding-top:5px;border-top:1px solid #E3D3B0}
+
+/* freight confirm */
+.tm-confirm{border-top:1px solid #EDE7DC;padding:8px 9px 9px;display:grid;
+            grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+.tmc{font-size:7.8px;color:#6B5B44;line-height:1.5}
+.tmc b{color:#5A4519}
+.yn{display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:7.4px;
+    letter-spacing:.1em;font-weight:700;color:#6B5B44}
+.yn i{display:inline-block;width:11px;height:11px;border:1px solid #B9A483;background:#fff;
+      border-radius:2px;vertical-align:-2px}
+.tmc-note{color:#8B7B63}
 
 /* ---------- notes ---------- */
 .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:15px;padding-top:12px;
