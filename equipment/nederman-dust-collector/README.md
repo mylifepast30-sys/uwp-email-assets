@@ -34,9 +34,14 @@ Photos: `IMG_6284-hoyer-motor-nameplate.jpeg`, `IMG_6283-hoyer-motor-mounted.jpe
 | Mfg. date (YY/WW) | 2022 week 47 |
 | Standard | IEC 60034-1, CE |
 
-**Note:** Nameplate is 50 Hz only. On 60 Hz supply this motor runs ~1150 rpm
-and must be fed at correct V/Hz (e.g. via VFD) — verify how it is wired/fed
-on site.
+**Note:** Nameplate is 50 Hz only. On 60 Hz supply this motor runs ~1150 rpm.
+
+**VFD decision (UWP, 2026-08-07):** the control panel gets **one VFD, on this
+Hoyer motor only**. The JIE gearmotor (and other drives) start across-the-line
+at full voltage. Carl (air pollution) has advised even this VFD may not be
+necessary — a 400 V/50 Hz motor on 460 V/60 Hz keeps ~the same V/Hz ratio and
+can run DOL at ~1150 rpm — pending confirmation the higher speed is acceptable
+for the driven equipment. Until confirmed, the VFD stays in the design.
 
 ## 2. JIE JDRIVE gearmotor — rotary valve / screw conveyor drive
 
