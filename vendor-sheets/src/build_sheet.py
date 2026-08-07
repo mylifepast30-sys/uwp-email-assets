@@ -124,8 +124,16 @@ FAMILIES = [
 ]
 
 
+def sub(f, idx, cont=False):
+    g = dict(f)
+    g["groups"] = [f["groups"][i] for i in idx]
+    g["cont"] = cont
+    return g
+
+
 def render_family(f):
     rows = []
+    cont = '<span class="cont">continued</span>' if f.get("cont") else ""
     badge = ""
     if f.get("isnew"):
         badge = '<span class="badge-new">NEW</span>'
@@ -136,7 +144,7 @@ def render_family(f):
       <div class="famrow">
         <div class="famart">{f["art"]}</div>
         <div class="famtxt">
-          <div class="famname"><b>{f["code"]}</b><span class="famsep"></span>{f["name"]}{badge}</div>
+          <div class="famname"><b>{f["code"]}</b><span class="famsep"></span>{f["name"]}{cont}{badge}</div>
           <div class="famspec">{f["spec"]}</div>
         </div>
       </div>
@@ -162,15 +170,15 @@ def table(families, cont=False):
     head = f'''
   <table class="items">
     <colgroup>
-      <col style="width:60px"><col style="width:102px"><col>
-      <col style="width:66px"><col style="width:100px">
-      <col style="width:62px"><col style="width:80px">
+      <col style="width:74px"><col style="width:132px"><col>
+      <col style="width:84px"><col style="width:126px">
+      <col style="width:74px"><col style="width:94px">
     </colgroup>
     <thead>
       <tr class="hd">
         <th class="c-qty"><small>ANDY</small>QTY (EA)</th>
         <th class="c-sku">SKU</th>
-        <th class="c-size">SIZE &nbsp;(THK × DEPTH × LENGTH)</th>
+        <th class="c-size">SIZE &nbsp;(T × D × L)</th>
         <th class="c-sp">SPECIES</th>
         <th class="c-prof">PROFILE</th>
         <th class="c-stock"><small>DENDRATEC</small>IN STOCK</th>
@@ -247,7 +255,7 @@ PARTIES = f'''
   </section>
   <div class="howto">
     <span class="ht-l">◀ &nbsp;<b>ANDY</b> enters quantity</span>
-    <span class="ht-c">All pricing <b>UNFINISHED</b> and truckload. Quote every line or mark <b>N/A</b>. Freight terms on page 2.</span>
+    <span class="ht-c">All pricing <b>UNFINISHED</b> and truckload &nbsp;·&nbsp; quote every line or mark <b>N/A</b></span>
     <span class="ht-r"><b>DENDRATEC</b> enters stock on hand + unit price&nbsp; ▶</span>
   </div>'''
 
@@ -289,6 +297,7 @@ NOTES = '''
       <h4>Abbreviations</h4>
       <p><b>MR</b> — Miter Return, 45°, reversible left/right<br>
          <b>Wide</b> — extra-depth tread &nbsp;·&nbsp; <b>Landing</b> — platform tread<br>
+         <b>T × D × L</b> — thickness × depth × length<br>
          <b>&#9635;</b> — plastic wrap required (8071 / 8073)</p>
     </div>
     <div class="nt">
@@ -396,11 +405,11 @@ CSS = """
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color:#111A1D;background:#8a8a8a}
-.page{width:8.5in;height:11in;background:#fff;padding:.42in .45in .40in;display:flex;flex-direction:column;
+.page{width:8.5in;height:11in;background:#fff;padding:.40in .36in .38in;display:flex;flex-direction:column;
       position:relative;overflow:hidden;page-break-after:always}
 .page:last-child{page-break-after:auto}
-.foot{position:absolute;left:.45in;right:.45in;bottom:.24in;display:flex;justify-content:space-between;
-      align-items:center;border-top:1px solid #A9B3B2;padding-top:5px;font-size:7.2px;letter-spacing:.09em;
+.foot{position:absolute;left:.36in;right:.36in;bottom:.22in;display:flex;justify-content:space-between;
+      align-items:center;border-top:1px solid #A9B3B2;padding-top:5px;font-size:10.5px;letter-spacing:.09em;
       color:#3F4948;text-transform:uppercase}
 .foot b{color:#104A4E;font-weight:600}
 
@@ -409,48 +418,48 @@ body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color
     border-bottom:2.5px solid #104A4E;padding-bottom:10px;margin-bottom:11px}
 .ph-l{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
 .logo{height:62px;width:auto;display:block}
-.ph-tag{font-size:7.4px;letter-spacing:.15em;color:#26302F;text-transform:uppercase;white-space:nowrap}
+.ph-tag{font-size:10.8px;letter-spacing:.15em;color:#26302F;text-transform:uppercase;white-space:nowrap}
 .ph-r{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
-.ph-kicker{font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:#46514F}
-.ph-r h1{font-size:25px;letter-spacing:.03em;font-weight:300;color:#104A4E;line-height:1;
+.ph-kicker{font-size:10.7px;letter-spacing:.3em;text-transform:uppercase;color:#46514F}
+.ph-r h1{font-size:30px;letter-spacing:.03em;font-weight:300;color:#104A4E;line-height:1;
          display:flex;flex-direction:column;align-items:flex-end;gap:5px}
-.ph-r h1 span{font-size:8px;letter-spacing:.22em;font-weight:600;color:#111A1D}
+.ph-r h1 span{font-size:10.7px;letter-spacing:.22em;font-weight:600;color:#111A1D}
 .ph-meta{display:flex;align-items:center;gap:9px;margin-top:5px;padding-top:7px;
          border-top:1px solid #A9B3B2;width:100%;justify-content:flex-end}
-.ph-meta span{font-size:7px;letter-spacing:.2em;color:#46514F}
+.ph-meta span{font-size:10.2px;letter-spacing:.2em;color:#46514F}
 .denlogo{height:26px;width:auto;display:block}
 
 /* compact header for continuation pages */
 .ph-c{align-items:center;border-bottom-width:1.5px;padding-bottom:8px;margin-bottom:12px}
 .ph-c .ph-l{flex-direction:row;align-items:center;gap:13px}
 .ph-c .logo{height:38px}
-.ph-ctitle{font-size:13px;letter-spacing:.11em;font-weight:600;color:#104A4E;line-height:1.25;
+.ph-ctitle{font-size:15.6px;letter-spacing:.11em;font-weight:600;color:#104A4E;line-height:1.25;
            border-left:1px solid #8C9695;padding-left:13px}
-.ph-ctitle span{display:block;font-size:7.2px;letter-spacing:.15em;text-transform:uppercase;
+.ph-ctitle span{display:block;font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;
                 color:#46514F;font-weight:400;margin-top:2px}
 .ph-cr{display:flex;align-items:center;gap:14px}
-.ph-cont{font-size:7.2px;letter-spacing:.15em;text-transform:uppercase;color:#46514F}
+.ph-cont{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:#46514F}
 .ph-c .denlogo{height:19px}
 
 /* ---------- parties ---------- */
 .parties{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:0}
 .pt{border:1px solid #8C9695;border-radius:3px;overflow:hidden}
-.pt-cap{font-size:7.2px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+.pt-cap{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
         padding:5px 8px;border-bottom:1px solid #A9B3B2;color:#26302F}
 .pt-cap i{display:none}
 .pt-uwp .pt-cap{color:#104A4E}
 .pt-body{padding:7px 8px 8px}
-.pt-name{font-size:11px;font-weight:700;letter-spacing:.05em;color:#111A1D}
-.pt-addr{font-size:8.2px;line-height:1.5;color:#26302F;margin-top:2px}
+.pt-name{font-size:13.2px;font-weight:700;letter-spacing:.05em;color:#111A1D}
+.pt-addr{font-size:11px;line-height:1.5;color:#26302F;margin-top:2px}
 .fills{margin-top:6px;display:grid;grid-template-columns:1fr 1fr;gap:4px 10px}
-.fills label{font-size:6.6px;letter-spacing:.11em;color:#46514F;text-transform:uppercase;
+.fills label{font-size:9.6px;letter-spacing:.11em;color:#46514F;text-transform:uppercase;
              display:flex;flex-direction:column;gap:1px}
-.fills em{font-style:normal;font-size:9px;color:#111A1D;font-weight:600;
-          border-bottom:1px solid #7A8483;min-height:14px;padding-top:2px}
+.fills em{font-style:normal;font-size:12.1px;color:#111A1D;font-weight:600;
+          border-bottom:1px solid #7A8483;min-height:19px;padding-top:3px}
 
 .howto{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0 8px;
        padding:5px 0;border-top:1px solid #A9B3B2;border-bottom:1px solid #A9B3B2;
-       font-size:7.6px;color:#26302F}
+       font-size:10.2px;color:#26302F}
 .howto b{font-weight:700;letter-spacing:.06em}
 .ht-l{color:#104A4E;white-space:nowrap}
 .ht-r{color:#111A1D;white-space:nowrap}
@@ -458,27 +467,27 @@ body{font:400 10px/1.4 -apple-system,"Segoe UI",Helvetica,Arial,sans-serif;color
 
 /* ---------- profile key ---------- */
 .pkey{margin:0 0 3px}
-.pk-cap{font-size:6.8px;letter-spacing:.24em;color:#46514F;text-transform:uppercase;font-weight:600;
+.pk-cap{font-size:9.9px;letter-spacing:.24em;color:#46514F;text-transform:uppercase;font-weight:600;
         margin-bottom:5px}
 .pk-row{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px}
 .pk{border:1px solid #A9B3B2;border-radius:3px;padding:6px 8px 7px}
 .pk-art{margin-bottom:3px}
-.pk svg.pf{width:60px;height:22px}
-.pk-code{font-size:9.5px;font-weight:700;color:#104A4E;letter-spacing:.04em;
+.pk svg.pf{width:72px;height:27px}
+.pk-code{font-size:11.4px;font-weight:700;color:#104A4E;letter-spacing:.04em;
          display:flex;align-items:center;gap:5px}
-.pk-new{background:#104A4E;color:#fff;font-size:5.6px;font-weight:700;letter-spacing:.12em;
+.pk-new{background:#104A4E;color:#fff;font-size:8.2px;font-weight:700;letter-spacing:.12em;
         padding:1.5px 4px;border-radius:2px}
-.pk-wrap{color:#3F4948;font-size:8px}
-.pk-name{font-size:6.6px;letter-spacing:.13em;text-transform:uppercase;color:#111A1D;font-weight:600;
+.pk-wrap{color:#3F4948;font-size:10.7px}
+.pk-name{font-size:9.6px;letter-spacing:.13em;text-transform:uppercase;color:#111A1D;font-weight:600;
          margin-top:2px}
-.pk-dim{font-size:6.8px;color:#3F4948;margin-top:2px;line-height:1.35}
+.pk-dim{font-size:9.9px;color:#3F4948;margin-top:2px;line-height:1.35}
 
 /* ---------- items ---------- */
 .items{width:100%;border-collapse:collapse;table-layout:fixed}
 .items th,.items td{vertical-align:middle}
-tr.hd th{font-size:7px;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#104A4E;
+tr.hd th{font-size:10.2px;letter-spacing:.11em;text-transform:uppercase;color:#fff;background:#104A4E;
          padding:5px 7px 6px;text-align:left;font-weight:600;vertical-align:bottom}
-tr.hd th small{display:block;font-size:6.3px;letter-spacing:.18em;font-weight:700;
+tr.hd th small{display:block;font-size:9.2px;letter-spacing:.18em;font-weight:700;
                opacity:.9;margin-bottom:2px}
 tr.hd th.c-qty{text-align:center}
 tr.hd th.c-stock{text-align:center;padding-right:0}
@@ -488,103 +497,105 @@ tr.hd th.c-sp,tr.hd th.c-prof{text-align:left}
 tr.fam td{padding:26px 0 7px}
 .items tbody tr.fam:first-child td{padding-top:14px}
 .famrow{display:flex;align-items:center;gap:12px;border-bottom:1.5px solid #104A4E;padding-bottom:6px;
-        margin-left:62px}
-.famart{width:70px;flex:0 0 70px}
-svg.pf{width:70px;height:26px;display:block}
+        margin-left:74px}
+.famart{width:88px;flex:0 0 88px}
+svg.pf{width:88px;height:33px;display:block}
 .famtxt{flex:1}
-.famname{font-size:11.5px;letter-spacing:.05em;color:#104A4E;display:flex;align-items:center;gap:0}
+.famname{font-size:13.8px;letter-spacing:.05em;color:#104A4E;display:flex;align-items:center;gap:0}
 .famname b{font-weight:700}
 .famsep{display:inline-block;width:16px;height:1px;background:#6E7877;margin:0 8px}
-.famspec{font-size:7.8px;color:#333D3D;margin-top:1.5px;letter-spacing:.03em}
-.badge-wrap{margin-left:9px;color:#26302F;border:1px solid #7A8483;font-size:6.4px;
+.famspec{font-size:10.5px;color:#333D3D;margin-top:1.5px;letter-spacing:.03em}
+.cont{margin-left:11px;font-size:8.8px;letter-spacing:.14em;text-transform:uppercase;
+      color:#46514F;font-weight:600}
+.badge-wrap{margin-left:9px;color:#26302F;border:1px solid #7A8483;font-size:9.3px;
             font-weight:700;letter-spacing:.12em;padding:1.5px 6px;border-radius:2px}
 
-tr.grp td{font-size:6.8px;letter-spacing:.17em;text-transform:uppercase;color:#46514F;
-          padding:9px 0 4px 62px;font-weight:600}
+tr.grp td{font-size:9.9px;letter-spacing:.17em;text-transform:uppercase;color:#46514F;
+          padding:11px 0 5px 74px;font-weight:600}
 
-.items tbody tr td{border-bottom:1px solid #BFC7C6;padding:0 7px;height:19px;font-size:8.6px}
+.items tbody tr td{border-bottom:1px solid #BFC7C6;padding:0 8px;height:25px;font-size:11.5px}
 .items tbody tr.fam td,.items tbody tr.grp td{border-bottom:none;height:auto;padding-right:0}
 .items tbody tr.fam td{padding-left:0}
-.c-sku{font-weight:700;letter-spacing:.02em;font-size:8.4px}
+.c-sku{font-weight:700;letter-spacing:.02em;font-size:11.3px}
 .c-size{color:#26302F;font-variant-numeric:tabular-nums}
 .c-sp{color:#26302F}
-.c-prof{color:#26302F;font-size:8px}
+.c-prof{color:#26302F;font-size:10.7px}
 td.c-qty{border-right:1px solid #8C9695}
 td.c-stock{border-left:1px solid #8C9695;border-right:1px solid #BFC7C6}
 td.c-price{text-align:left;color:#8A9493;font-weight:600}
 tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
-.wmark{color:#3F4948;font-size:7px;margin-left:5px;vertical-align:1px}
+.wmark{color:#3F4948;font-size:10.2px;margin-left:5px;vertical-align:1px}
 
 /* ---------- wrap note ---------- */
 .wrapnote{display:flex;gap:11px;align-items:flex-start;margin-top:13px;padding:10px 12px;
           border:1px solid #8C9695;border-left:2.5px solid #104A4E;border-radius:3px}
-.wn-icon{font-size:15px;color:#104A4E;line-height:1}
-.wn-h{font-size:9px;font-weight:700;letter-spacing:.11em;color:#104A4E;text-transform:uppercase}
-.wn-body p{font-size:8.2px;line-height:1.55;color:#26302F;margin-top:3px}
+.wn-icon{font-size:18px;color:#104A4E;line-height:1}
+.wn-h{font-size:12.1px;font-weight:700;letter-spacing:.11em;color:#104A4E;text-transform:uppercase}
+.wn-body p{font-size:11px;line-height:1.55;color:#26302F;margin-top:3px}
 .wn-body b{color:#111A1D}
 .wn-price{margin-top:5px !important;padding-top:5px;border-top:1px solid #A9B3B2}
 
 /* freight confirm */
 .tm-confirm{border-top:1px solid #A9B3B2;padding:8px 9px 9px;display:grid;
             grid-template-columns:1fr 1fr;gap:14px;align-items:center}
-.tmc{font-size:7.8px;color:#26302F;line-height:1.5}
+.tmc{font-size:10.5px;color:#26302F;line-height:1.5}
 .tmc b{color:#111A1D}
-.yn{display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:7.4px;
+.yn{display:inline-flex;align-items:center;gap:4px;margin-left:8px;font-size:10.8px;
     letter-spacing:.1em;font-weight:700;color:#26302F}
-.yn i{display:inline-block;width:11px;height:11px;border:1px solid #6E7877;
+.yn i{display:inline-block;width:14px;height:14px;border:1px solid #6E7877;
       border-radius:2px;vertical-align:-2px}
 .tmc-note{color:#3F4948}
 
 /* ---------- notes ---------- */
 .notes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:13px;padding-top:10px;
        border-top:1px solid #A9B3B2}
-.nt h4{font-size:6.8px;letter-spacing:.2em;text-transform:uppercase;color:#104A4E;font-weight:700;
+.nt h4{font-size:9.9px;letter-spacing:.2em;text-transform:uppercase;color:#104A4E;font-weight:700;
        margin-bottom:4px}
-.nt p{font-size:7.6px;line-height:1.65;color:#26302F}
+.nt p{font-size:10.2px;line-height:1.65;color:#26302F}
 .nt b{color:#111A1D;font-weight:700}
 
 /* ---------- terms ---------- */
 .terms{margin-top:14px}
 .tm{border:1px solid #8C9695;border-radius:3px;overflow:hidden}
-.tm-cap{font-size:7.2px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+.tm-cap{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
         padding:5px 9px;border-bottom:1px solid #A9B3B2;color:#26302F}
 .tm-grid{padding:9px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px 14px}
-.tm-grid label{font-size:6.6px;letter-spacing:.11em;color:#46514F;text-transform:uppercase;
+.tm-grid label{font-size:9.6px;letter-spacing:.11em;color:#46514F;text-transform:uppercase;
                display:flex;flex-direction:column;gap:1px}
-.tm-grid em{font-style:normal;font-size:9px;color:#8A9493;font-weight:600;
-            border-bottom:1px solid #7A8483;min-height:17px;padding-top:2px}
+.tm-grid em{font-style:normal;font-size:12.1px;color:#8A9493;font-weight:600;
+            border-bottom:1px solid #7A8483;min-height:23px;padding-top:3px}
 .sigs{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:60px}
-.sig-line{border-bottom:1.2px solid #101818;height:20px}
-.sig-cap{font-size:6.8px;letter-spacing:.13em;text-transform:uppercase;color:#26302F;font-weight:700;
+.sig-line{border-bottom:1.2px solid #101818;height:26px}
+.sig-cap{font-size:9.9px;letter-spacing:.13em;text-transform:uppercase;color:#26302F;font-weight:700;
          margin-top:4px;display:flex;flex-direction:column;gap:1px}
-.sig-cap span{font-weight:400;letter-spacing:.04em;color:#46514F;text-transform:none;font-size:7.4px}
+.sig-cap span{font-weight:400;letter-spacing:.04em;color:#46514F;text-transform:none;font-size:10.8px}
 .sig-d .sig-cap{color:#26302F}
 
 /* ---------- specs ---------- */
 .specs{margin-top:26px}
-.specs h2{font-size:9px;letter-spacing:.22em;color:#104A4E;font-weight:700;text-transform:uppercase;
+.specs h2{font-size:12.1px;letter-spacing:.22em;color:#104A4E;font-weight:700;text-transform:uppercase;
           border-bottom:1.5px solid #104A4E;padding-bottom:5px;margin-bottom:10px}
 .spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px 18px}
-.sp h3{font-size:8.4px;letter-spacing:.09em;text-transform:uppercase;color:#111A1D;font-weight:700;
+.sp h3{font-size:11.3px;letter-spacing:.09em;text-transform:uppercase;color:#111A1D;font-weight:700;
        margin-bottom:4px}
 .sp ul{list-style:none;display:flex;flex-direction:column;gap:3px}
-.sp li{font-size:8px;line-height:1.5;color:#26302F;padding-left:9px;position:relative}
+.sp li{font-size:10.7px;line-height:1.5;color:#26302F;padding-left:9px;position:relative}
 .sp li:before{content:"";position:absolute;left:0;top:5.5px;width:3px;height:3px;border-radius:50%;
               background:#6E7877}
 .sp i{font-style:italic;color:#3F4948}
 .exempt{margin-top:11px;padding:8px 10px;border:1px solid #A9B3B2;border-radius:3px;
-        font-size:7.8px;line-height:1.55;color:#26302F}
+        font-size:10.5px;line-height:1.55;color:#26302F}
 .exempt b{color:#104A4E}
 """
 
 
 def foot(n, total):
     return (f'<div class="foot"><span><b>Unique Wood Products</b> &nbsp;·&nbsp; '
-            f'Vendor Price Request &nbsp;·&nbsp; Stair Treads &nbsp;·&nbsp; Dendratec</span>'
-            f'<span>uniquewoodproducts.com &nbsp;·&nbsp; Page {n} of {total}</span></div>')
+            f'Stair Treads &nbsp;·&nbsp; Dendratec</span>'
+            f'<span>Page {n} of {total}</span></div>')
 
 
-TOTAL = 3
+TOTAL = 4
 
 html = f"""<!doctype html><html><head><meta charset="utf-8">
 <title>UWP · Dendratec — Stair Tread Vendor Price Request</title>
@@ -594,24 +605,30 @@ html = f"""<!doctype html><html><head><meta charset="utf-8">
   {page_head(1, TOTAL)}
   {PARTIES}
   {profile_key()}
-  {table([FAMILIES[0]])}
-  {NOTES}
+  {table([sub(FAMILIES[0], [0, 1])])}
   {foot(1, TOTAL)}
 </div>
 
 <div class="page">
   {page_head_compact("Price schedule &nbsp;·&nbsp; continued")}
-  {table([FAMILIES[1], FAMILIES[2], FAMILIES[3]])}
-  {WRAP_NOTE}
+  {table([sub(FAMILIES[0], [2], cont=True), FAMILIES[1]])}
   {foot(2, TOTAL)}
+</div>
+
+<div class="page">
+  {page_head_compact("Retro-fit treads &nbsp;·&nbsp; packaging")}
+  {table([FAMILIES[2], FAMILIES[3]])}
+  {WRAP_NOTE}
+  {foot(3, TOTAL)}
 </div>
 
 <div class="page">
   {page_head_compact("Freight, specification &amp; signatures")}
   {TERMS}
   {SPECS}
+  {NOTES}
   {SIGS}
-  {foot(3, TOTAL)}
+  {foot(4, TOTAL)}
 </div>
 
 </body></html>"""
