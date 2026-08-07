@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UWP OSHA Sign Pack — Print & Laminate</title>
+<style>
+  :root{
+    --danger:#C8102E; --warning:#FF7900; --caution:#FFD100;
+    --notice:#0072CE; --safety:#007A33; --fire:#C8102E; --ink:#111;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:Arial, Helvetica, sans-serif; color:var(--ink); background:#fff;}
+  @page{size:letter portrait; margin:0.4in;}
+  .page{
+    width:7.7in; height:10.2in; margin:0 auto; page-break-after:always;
+    display:flex; flex-direction:column; border:6px solid #111; padding:0.15in;
+  }
+  .cover{border:none; justify-content:center; text-align:center;}
+  .cover h1{font-size:34pt; margin-bottom:20px;}
+  .cover p{font-size:14pt; line-height:1.5; margin-bottom:14px; text-align:left;}
+  .cover .tip{background:#FFF3CD; border:2px solid #B58900; padding:14px; font-size:13pt; text-align:left;}
+  .band{
+    color:#fff; text-align:center; padding:0.25in 0.1in; margin-bottom:0.2in;
+  }
+  .band .en{font-size:64pt; font-weight:900; letter-spacing:2px; line-height:1;}
+  .band .es{font-size:22pt; font-weight:700; margin-top:6px;}
+  .danger  .band{background:var(--danger);}
+  .warning .band{background:var(--warning); color:#111;}
+  .caution .band{background:var(--caution); color:#111;}
+  .notice  .band{background:var(--notice);}
+  .safety  .band{background:var(--safety);}
+  .fire    .band{background:var(--fire);}
+  .danger .band .en{background:#fff; color:var(--danger); border-radius:50%/60%; display:inline-block; padding:8px 60px;}
+  .body{flex:1; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:0 0.2in;}
+  .msg-en{font-size:38pt; font-weight:800; line-height:1.15; margin-bottom:0.35in;}
+  .msg-es{font-size:26pt; font-weight:600; line-height:1.2; color:#222;}
+  .sub{font-size:16pt; margin-top:0.35in; color:#333;}
+  .loc{border-top:3px solid #111; margin-top:0.15in; padding-top:6px; font-size:11pt; color:#444; text-align:left;}
+  .loc b{color:#111;}
+  @media print{ .noprint{display:none;} }
+  .noprint{background:#eef; padding:10px; text-align:center; font-size:13px;}
+</style>
+</head>
+<body>
+<div class="noprint">Print with <b>Ctrl+P</b> → Paper: Letter → Margins: Default → <b>Background graphics: ON</b>. Each sign is one page.</div>
+
+<div class="page cover">
+  <h1>Unique Wood Products<br>OSHA Safety Sign Pack</h1>
+  <p><b>Printing:</b> Use white paper (the colors print from the file — colored paper will distort the OSHA header colors). Turn ON "Background graphics" in the print dialog. Laminate each sheet, round the corners with scissors, and mount at about 60–66&Prime; to sign center.</p>
+  <p><b>Where each sign goes</b> is printed in small text at the bottom of each page — trim it off before mounting or fold it behind.</p>
+  <p class="tip"><b>Heads up:</b> Laminated paper is fine indoors. For the yard, docks, and the outdoor dust collector, these will fade — use them now, but budget for aluminum versions of the outdoor signs. Illuminated EXIT signs over exit doors are a fire-code item that paper can't replace. See OSHA-SIGN-TAKEOFF.md for the full list and quantities.</p>
+</div>
+
+<!-- ============ DUST COLLECTOR AREA ============ -->
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">COMBUSTIBLE DUST AREA<br>No Smoking &bull; No Open Flames<br>No Hot Work Without Permit</div>
+    <div class="msg-es">ÁREA DE POLVO COMBUSTIBLE<br>No fumar &bull; No llamas abiertas<br>No trabajo en caliente sin permiso</div>
+  </div>
+  <div class="loc"><b>Post:</b> Both approach sides of the dust collector / baghouse. Qty 2. (Outdoor — plan aluminum replacement.)</div>
+</div>
+
+<div class="page warning">
+  <div class="band"><div class="en">WARNING</div><div class="es">ADVERTENCIA</div></div>
+  <div class="body">
+    <div class="msg-en">EQUIPMENT STARTS AUTOMATICALLY<br>Lock Out Power Before Servicing</div>
+    <div class="msg-es">EL EQUIPO ARRANCA AUTOMÁTICAMENTE<br>Bloquee la energía antes de dar servicio</div>
+  </div>
+  <div class="loc"><b>Post:</b> Dust collector fan housing + rotary valve access. Qty 2.</div>
+</div>
+
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">CONFINED SPACE<br>Do Not Enter Without Permit</div>
+    <div class="msg-es">ESPACIO CONFINADO<br>No entre sin permiso</div>
+  </div>
+  <div class="loc"><b>Post:</b> Baghouse/filter access doors and hopper/bin access. Qty 2.</div>
+</div>
+
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">DO NOT CLIMB<br>Authorized Personnel Only</div>
+    <div class="msg-es">NO SUBIR<br>Solo personal autorizado</div>
+  </div>
+  <div class="loc"><b>Post:</b> Base of caged ladder at dust collector platform. Qty 1.</div>
+</div>
+
+<div class="page caution">
+  <div class="band"><div class="en">CAUTION</div><div class="es">PRECAUCIÓN</div></div>
+  <div class="body">
+    <div class="msg-en">HEARING PROTECTION REQUIRED<br>WHEN FAN IS RUNNING</div>
+    <div class="msg-es">SE REQUIERE PROTECCIÓN AUDITIVA<br>CUANDO EL VENTILADOR ESTÁ EN MARCHA</div>
+  </div>
+  <div class="loc"><b>Post:</b> Dust collector fan/platform area (verify with noise survey). Qty 1.</div>
+</div>
+
+<!-- ============ ELECTRICAL ============ -->
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">ELECTRICAL HAZARD<br>Authorized Personnel Only<br>Keep Clear 36 Inches</div>
+    <div class="msg-es">PELIGRO ELÉCTRICO<br>Solo personal autorizado<br>Mantenga libre 36 pulgadas (91 cm)</div>
+  </div>
+  <div class="loc"><b>Post:</b> Every breaker panel and disconnect, inside and outside. Qty ~8 — print extras.</div>
+</div>
+
+<div class="page warning">
+  <div class="band"><div class="en">WARNING</div><div class="es">ADVERTENCIA</div></div>
+  <div class="body">
+    <div class="msg-en">ARC FLASH AND SHOCK HAZARD<br>Appropriate PPE Required</div>
+    <div class="msg-es">PELIGRO DE ARCO ELÉCTRICO Y DESCARGA<br>Se requiere EPP apropiado</div>
+  </div>
+  <div class="loc"><b>Post:</b> Same panels as electrical-hazard sign. Stopgap until an arc-flash study provides rated labels. Qty ~8.</div>
+</div>
+
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">FIRE PUMP &amp; ELECTRICAL ROOM<br>Authorized Personnel Only<br>No Storage In This Room</div>
+    <div class="msg-es">CUARTO DE BOMBA CONTRA INCENDIOS Y ELÉCTRICO<br>Solo personal autorizado &bull; No almacenar</div>
+  </div>
+  <div class="loc"><b>Post:</b> Fire pump / electrical room door. Qty 1.</div>
+</div>
+
+<!-- ============ DOCKS & YARD ============ -->
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">CHOCK WHEELS BEFORE<br>LOADING OR UNLOADING</div>
+    <div class="msg-es">COLOQUE CALZAS EN LAS RUEDAS<br>ANTES DE CARGAR O DESCARGAR</div>
+  </div>
+  <div class="loc"><b>Post:</b> One at each dock door (doors 5, 6, and the rest — count on walk-through). Qty ~6.</div>
+</div>
+
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">OPEN DOCK<br>KEEP BACK</div>
+    <div class="msg-es">MUELLE ABIERTO<br>MANTÉNGASE ATRÁS</div>
+  </div>
+  <div class="loc"><b>Post:</b> Inside face of each dock door. Qty ~6.</div>
+</div>
+
+<div class="page caution">
+  <div class="band"><div class="en">CAUTION</div><div class="es">PRECAUCIÓN</div></div>
+  <div class="body">
+    <div class="msg-en">FORKLIFT TRAFFIC AREA<br>Watch for Pedestrians</div>
+    <div class="msg-es">ÁREA DE TRÁFICO DE MONTACARGAS<br>Atención a los peatones</div>
+  </div>
+  <div class="loc"><b>Post:</b> Yard gates and dock apron. Qty 2. (Outdoor.)</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">ALL VISITORS AND DRIVERS<br>CHECK IN AT OFFICE<br>Authorized Personnel Only Beyond This Point</div>
+    <div class="msg-es">TODOS LOS VISITANTES Y CONDUCTORES<br>REGÍSTRESE EN LA OFICINA<br>Solo personal autorizado más allá de este punto</div>
+  </div>
+  <div class="loc"><b>Post:</b> Main yard gate, beside existing Receiving &amp; Shipping sign. Qty 1. (Outdoor.)</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">SPEED LIMIT<br><span style="font-size:80pt">5 MPH</span></div>
+    <div class="msg-es">LÍMITE DE VELOCIDAD 5 MPH</div>
+  </div>
+  <div class="loc"><b>Post:</b> Yard gate entrance. Qty 1. (Outdoor.)</div>
+</div>
+
+<!-- ============ SHOP FLOOR ============ -->
+<div class="page caution">
+  <div class="band"><div class="en">CAUTION</div><div class="es">PRECAUCIÓN</div></div>
+  <div class="body">
+    <div class="msg-en">SAFETY GLASSES AND<br>HEARING PROTECTION<br>REQUIRED IN THIS AREA</div>
+    <div class="msg-es">SE REQUIEREN LENTES DE SEGURIDAD<br>Y PROTECCIÓN AUDITIVA EN ESTA ÁREA</div>
+  </div>
+  <div class="loc"><b>Post:</b> Every shop entrance door. Qty 2+.</div>
+</div>
+
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">KEEP HANDS AWAY<br>FROM BLADE / CUTTER<br>Guards Must Be In Place</div>
+    <div class="msg-es">MANTENGA LAS MANOS LEJOS<br>DE LA HOJA / CORTADOR<br>Las guardas deben estar en su lugar</div>
+  </div>
+  <div class="loc"><b>Post:</b> One per machine — table saw, miter saw, shaper, jointer, planer, edgebander, sanders. Qty ~8.</div>
+</div>
+
+<div class="page warning">
+  <div class="band"><div class="en">WARNING</div><div class="es">ADVERTENCIA</div></div>
+  <div class="body">
+    <div class="msg-en">MACHINE STARTS AUTOMATICALLY<br>Keep Clear of Moving Parts</div>
+    <div class="msg-es">LA MÁQUINA ARRANCA AUTOMÁTICAMENTE<br>Manténgase alejado de las partes móviles</div>
+  </div>
+  <div class="loc"><b>Post:</b> CNC enclosure / any auto-cycling equipment. Qty 1+.</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">DO NOT OPERATE MACHINERY<br>UNLESS TRAINED AND AUTHORIZED</div>
+    <div class="msg-es">NO OPERE MAQUINARIA<br>SIN CAPACITACIÓN Y AUTORIZACIÓN</div>
+  </div>
+  <div class="loc"><b>Post:</b> Machine area walls. Qty 2.</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">LOCKOUT / TAGOUT STATION<br>Lock Out Before You Work</div>
+    <div class="msg-es">ESTACIÓN DE BLOQUEO / ETIQUETADO<br>Bloquee antes de trabajar</div>
+  </div>
+  <div class="loc"><b>Post:</b> Above the LOTO lock board, central shop wall. Qty 1.</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">DO NOT USE COMPRESSED AIR<br>TO CLEAN CLOTHING OR SKIN</div>
+    <div class="msg-es">NO USE AIRE COMPRIMIDO<br>PARA LIMPIAR ROPA O PIEL</div>
+  </div>
+  <div class="loc"><b>Post:</b> At air hose drops. Qty 2.</div>
+</div>
+
+<div class="page caution">
+  <div class="band"><div class="en">CAUTION</div><div class="es">PRECAUCIÓN</div></div>
+  <div class="body">
+    <div class="msg-en">COMPRESSED AIR<br>UNDER PRESSURE</div>
+    <div class="msg-es">AIRE COMPRIMIDO<br>BAJO PRESIÓN</div>
+  </div>
+  <div class="loc"><b>Post:</b> Air compressor. Qty 1.</div>
+</div>
+
+<!-- ============ FLAMMABLES / FINISHING ============ -->
+<div class="page danger">
+  <div class="band"><div class="en">DANGER</div><div class="es">PELIGRO</div></div>
+  <div class="body">
+    <div class="msg-en">FLAMMABLE MATERIALS<br>No Smoking or Open Flame<br>Within 50 Feet</div>
+    <div class="msg-es">MATERIALES INFLAMABLES<br>No fumar ni llamas abiertas<br>a menos de 50 pies (15 m)</div>
+  </div>
+  <div class="loc"><b>Post:</b> Finishing area and flammable cabinet. Qty 2 (if finishes on site).</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOTICE</div><div class="es">AVISO</div></div>
+  <div class="body">
+    <div class="msg-en">RESPIRATOR REQUIRED<br>FOR SPRAY OPERATIONS</div>
+    <div class="msg-es">SE REQUIERE RESPIRADOR<br>PARA OPERACIONES DE ROCIADO</div>
+  </div>
+  <div class="loc"><b>Post:</b> Spray booth/finishing entry. Qty 1 (if spraying).</div>
+</div>
+
+<!-- ============ FIRE / EXITS / FIRST AID ============ -->
+<div class="page fire">
+  <div class="band"><div class="en">FIRE<br>EXTINGUISHER</div><div class="es">EXTINTOR DE INCENDIOS</div></div>
+  <div class="body">
+    <div class="msg-en" style="font-size:120pt">&#8595;</div>
+  </div>
+  <div class="loc"><b>Post:</b> Above every extinguisher, high enough to see over racking. Qty ~8.</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NOT AN EXIT</div><div class="es">NO ES SALIDA</div></div>
+  <div class="body">
+    <div class="msg-en">STORAGE / OFFICE</div>
+    <div class="msg-es">ALMACÉN / OFICINA</div>
+  </div>
+  <div class="loc"><b>Post:</b> Any door that could be mistaken for an exit (1910.37). Qty ~4.</div>
+</div>
+
+<div class="page safety">
+  <div class="band"><div class="en">FIRST AID</div><div class="es">PRIMEROS AUXILIOS</div></div>
+  <div class="body">
+    <div class="msg-en" style="color:var(--safety); font-size:150pt; font-weight:900">+</div>
+  </div>
+  <div class="loc"><b>Post:</b> At first aid kit locations. Qty 2.</div>
+</div>
+
+<div class="page safety">
+  <div class="band"><div class="en">EYEWASH<br>STATION</div><div class="es">ESTACIÓN LAVAOJOS</div></div>
+  <div class="body">
+    <div class="msg-en">Flush eyes for 15 minutes.<br>Get medical attention.</div>
+    <div class="msg-es">Enjuague los ojos por 15 minutos.<br>Busque atención médica.</div>
+  </div>
+  <div class="loc"><b>Post:</b> At the emergency eyewash. Qty 1.</div>
+</div>
+
+<div class="page notice">
+  <div class="band"><div class="en">NO SMOKING</div><div class="es">NO FUMAR</div></div>
+  <div class="body">
+    <div class="msg-en">Entire Facility<br>Combustible Dust Area</div>
+    <div class="msg-es">Toda la instalación<br>Área de polvo combustible</div>
+  </div>
+  <div class="loc"><b>Post:</b> Entrances, breakroom, yard. Qty ~4.</div>
+</div>
+
+</body>
+</html>
