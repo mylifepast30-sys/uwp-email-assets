@@ -123,6 +123,8 @@ tr.grp td{font-size:12.9px;letter-spacing:.17em;text-transform:uppercase;color:#
 td.c-qty{border-right:1px solid #8C9695}
 td.c-stock{border-left:1px solid #8C9695;border-right:1px solid #BFC7C6}
 td.c-price{text-align:left;color:#8A9493;font-weight:600}
+td.c-price b{color:#111A1D;font-weight:700;margin-left:3px}
+td.c-price:has(b) .dol{color:#46514F}
 tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
 .wmark{color:#3F4948;font-size:12.8px;margin-left:5px;vertical-align:1px}
 
@@ -153,6 +155,11 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
        margin-bottom:4px}
 .nt p{font-size:12.8px;line-height:1.65;color:#26302F}
 .nt b{color:#111A1D;font-weight:700}
+
+.pnote{margin-top:13px;padding:9px 12px;border:1px solid #A9B3B2;border-radius:3px}
+.pn-h{font-size:9.5px;font-weight:700;letter-spacing:.1em;color:#104A4E;text-transform:uppercase}
+.pnote p{font-size:11px;line-height:1.55;color:#26302F;margin-top:4px}
+.pnote b{color:#111A1D}
 
 /* ---------- terms ---------- */
 .terms{margin-top:14px}
@@ -238,7 +245,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
   </section>
   <div class="howto">
     <span class="ht-l">◀ &nbsp;<b>ANDY</b> — quantity</span>
-    <span class="ht-c">Unfinished, truckload &nbsp;·&nbsp; mark <b>N/A</b> if unavailable</span>
+    <span class="ht-c">Priced from Dendratec RFQ &nbsp;·&nbsp; 17 Jun 2026 &nbsp;·&nbsp; blanks not yet quoted</span>
     <span class="ht-r"><b>DENDRATEC</b> — stock + unit price&nbsp; ▶</span>
   </div>
   
@@ -275,7 +282,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>13.91</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -283,7 +290,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>15.89</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -291,7 +298,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>21.06</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -299,7 +306,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 72"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>25.27</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -307,7 +314,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 84"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>31.43</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -315,7 +322,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 96"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>35.92</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -323,7 +330,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>20.84</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -331,7 +338,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>26.32</b></td>
       </tr><tr class="grp"><td colspan="6">WHITE OAK</td></tr>
       <tr>
         <td class="c-qty"></td>
@@ -339,7 +346,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>26.24</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -347,7 +354,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>29.99</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -355,7 +362,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>39.74</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -363,7 +370,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>38.78</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -371,7 +378,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>50.09</b></td>
       </tr></tbody>
   </table>
   <div class="foot"><span><b>Unique Wood Products</b> &nbsp;·&nbsp; Stair Treads &nbsp;·&nbsp; Dendratec</span><span>Page 1 of 4</span></div>
@@ -431,7 +438,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">30" × 60"</td>
         <td class="c-prof">Wide tread</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>81.68</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -439,7 +446,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">48" × 48"</td>
         <td class="c-prof">Platform landing</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>103.59</b></td>
       </tr><tr class="grp"><td colspan="6">WIDE TREADS &amp; LANDINGS &nbsp;·&nbsp; WHITE OAK</td></tr>
       <tr>
         <td class="c-qty"></td>
@@ -455,7 +462,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">48" × 48"</td>
         <td class="c-prof">Platform landing</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>192.57</b></td>
       </tr>
     <tr class="fam"><td colspan="6">
       <div class="famrow">
@@ -473,7 +480,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>13.91</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -481,7 +488,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>15.89</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -489,7 +496,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>21.06</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -497,7 +504,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>21.34</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -505,7 +512,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>26.82</b></td>
       </tr><tr class="grp"><td colspan="6">WHITE OAK</td></tr>
       <tr>
         <td class="c-qty"></td>
@@ -513,7 +520,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>28.71</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -521,7 +528,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>32.81</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -529,7 +536,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Square</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>43.48</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -545,7 +552,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 60"</td>
         <td class="c-prof">Miter Return · 45° Rev.</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>50.09</b></td>
       </tr><tr class="grp"><td colspan="6">WIDE TREADS &amp; LANDINGS &nbsp;·&nbsp; RED OAK</td></tr>
       <tr>
         <td class="c-qty"></td>
@@ -569,7 +576,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">48" × 48"</td>
         <td class="c-prof">Platform landing</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>103.59</b></td>
       </tr><tr class="grp"><td colspan="6">WIDE TREADS &amp; LANDINGS &nbsp;·&nbsp; WHITE OAK</td></tr>
       <tr>
         <td class="c-qty"></td>
@@ -585,7 +592,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">48" × 48"</td>
         <td class="c-prof">Platform landing</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>192.57</b></td>
       </tr></tbody>
   </table>
   <div class="foot"><span><b>Unique Wood Products</b> &nbsp;·&nbsp; Stair Treads &nbsp;·&nbsp; Dendratec</span><span>Page 2 of 4</span></div>
@@ -637,7 +644,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Retro Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>15.84</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -645,7 +652,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Retro Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>18.07</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -661,7 +668,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 42"</td>
         <td class="c-prof">Retro Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>28.71</b></td>
       </tr>
       <tr>
         <td class="c-qty"></td>
@@ -669,7 +676,7 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
         <td class="c-size">11-1/2" × 48"</td>
         <td class="c-prof">Retro Bullnose</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price"><span class="dol">$</span><b>32.79</b></td>
       </tr>
     <tr class="fam"><td colspan="6">
       <div class="famrow">
@@ -743,6 +750,17 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
       Do not quote it as a separate adder or leave it out to reach a target price — a price without wrap
       will not be accepted for these two profiles.</p>
     </div>
+  </section>
+  
+  <section class="pnote">
+    <div class="pn-h">PRICING CARRIED FROM DENDRATEC RFQ &nbsp;·&nbsp; PO 0000012955 &nbsp;·&nbsp; REVISED 17 JUN 2026</div>
+    <p>Where Dendratec entered a revised figure in the right-hand column, that figure is used.
+    The <b>8071 and 8073 reno treads carry a $0.25 plastic wrap adder</b>, as the RFQ quoted them
+    "NO PLASTIC" — 8071RO42 15.59 + .25, 8071RO48 17.82 + .25, 8071WO42 28.46 + .25,
+    8071WO48 32.54 + .25. Platform landings and the 30" × 60" wide tread carry the handwritten
+    <b>$20.00 adder</b>. Blank lines were not on the RFQ and still need quoting — all of 8073
+    (add the $0.25 wrap when quoted), the 20" and 22" wide treads, the 807230 wide treads,
+    807120RO48 and 8072WO48MR.</p>
   </section>
   <div class="foot"><span><b>Unique Wood Products</b> &nbsp;·&nbsp; Stair Treads &nbsp;·&nbsp; Dendratec</span><span>Page 3 of 4</span></div>
 </div>

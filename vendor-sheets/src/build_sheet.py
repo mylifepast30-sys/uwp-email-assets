@@ -134,6 +134,24 @@ FAMILIES = [
 ]
 
 
+# Unit prices carried from the Dendratec revised RFQ (PO 0000012955, 17 Jun 2026).
+# Revised right-column figures win over the printed PRICE/UOM where present.
+# 8071 rows were quoted "NO PLASTIC" and carry a $0.25 wrap adder.
+# Landings and 30x60 wide treads carry the handwritten $20.00 adder.
+PRICES = {
+    "8070RO42": 13.91, "8070RO48": 15.89, "8070RO60": 21.06, "8070RO72": 25.27,
+    "8070RO84": 31.43, "8070RO96": 35.92, "8070RO48MR": 20.84, "8070RO60MR": 26.32,
+    "8070WO42": 26.24, "8070WO48": 29.99, "8070WO60": 39.74,
+    "8070WO48MR": 38.78, "8070WO60MR": 50.09,
+    "807030RO60": 81.68, "807048RO48": 103.59, "807048WO48": 192.57,
+    "8072RO42": 13.91, "8072RO48": 15.89, "8072RO60": 21.06,
+    "8072RO48MR": 21.34, "8072RO60MR": 26.82,
+    "8072WO42": 28.71, "8072WO48": 32.81, "8072WO60": 43.48, "8072WO60MR": 50.09,
+    "807248RO48": 103.59, "807248WO48": 192.57,
+    "8071RO42": 15.84, "8071RO48": 18.07, "8071WO42": 28.71, "8071WO48": 32.79,
+}
+
+
 def sub(f, idx, cont=False):
     g = dict(f)
     g["groups"] = [f["groups"][i] for i in idx]
@@ -163,6 +181,9 @@ def render_family(f):
         rows.append(f'<tr class="grp"><td colspan="6">{gname}</td></tr>')
         for sku, size, prof in items:
             mark = '<span class="wmark">▣</span>' if f.get("wrap") else ""
+            v = PRICES.get(sku)
+            price = (f'<span class="dol">$</span><b>{v:,.2f}</b>' if v
+                     else '<span class="dol">$</span>')
             rows.append(f'''
       <tr>
         <td class="c-qty"></td>
@@ -170,7 +191,7 @@ def render_family(f):
         <td class="c-size">{size}</td>
         <td class="c-prof">{prof}</td>
         <td class="c-stock"></td>
-        <td class="c-price"><span class="dol">$</span></td>
+        <td class="c-price">{price}</td>
       </tr>''')
     return "".join(rows)
 
@@ -264,7 +285,7 @@ PARTIES = f'''
   </section>
   <div class="howto">
     <span class="ht-l">◀ &nbsp;<b>ANDY</b> — quantity</span>
-    <span class="ht-c">Unfinished, truckload &nbsp;·&nbsp; mark <b>N/A</b> if unavailable</span>
+    <span class="ht-c">Priced from Dendratec RFQ &nbsp;·&nbsp; 17 Jun 2026 &nbsp;·&nbsp; blanks not yet quoted</span>
     <span class="ht-r"><b>DENDRATEC</b> — stock + unit price&nbsp; ▶</span>
   </div>'''
 
@@ -322,6 +343,19 @@ NOTES = '''
          Houston, TX 77041<br>
          T 713.462.5045 &nbsp;·&nbsp; F 713.462.5086</p>
     </div>
+  </section>'''
+
+
+PRICE_NOTE = '''
+  <section class="pnote">
+    <div class="pn-h">PRICING CARRIED FROM DENDRATEC RFQ &nbsp;·&nbsp; PO 0000012955 &nbsp;·&nbsp; REVISED 17 JUN 2026</div>
+    <p>Where Dendratec entered a revised figure in the right-hand column, that figure is used.
+    The <b>8071 and 8073 reno treads carry a $0.25 plastic wrap adder</b>, as the RFQ quoted them
+    "NO PLASTIC" — 8071RO42 15.59 + .25, 8071RO48 17.82 + .25, 8071WO42 28.46 + .25,
+    8071WO48 32.54 + .25. Platform landings and the 30" × 60" wide tread carry the handwritten
+    <b>$20.00 adder</b>. Blank lines were not on the RFQ and still need quoting — all of 8073
+    (add the $0.25 wrap when quoted), the 20" and 22" wide treads, the 807230 wide treads,
+    807120RO48 and 8072WO48MR.</p>
   </section>'''
 
 
@@ -532,6 +566,8 @@ tr.grp td{font-size:12.9px;letter-spacing:.17em;text-transform:uppercase;color:#
 td.c-qty{border-right:1px solid #8C9695}
 td.c-stock{border-left:1px solid #8C9695;border-right:1px solid #BFC7C6}
 td.c-price{text-align:left;color:#8A9493;font-weight:600}
+td.c-price b{color:#111A1D;font-weight:700;margin-left:3px}
+td.c-price:has(b) .dol{color:#46514F}
 tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
 .wmark{color:#3F4948;font-size:12.8px;margin-left:5px;vertical-align:1px}
 
@@ -562,6 +598,11 @@ tr.fam td.c-qty,tr.grp td.c-qty{border-right:none}
        margin-bottom:4px}
 .nt p{font-size:12.8px;line-height:1.65;color:#26302F}
 .nt b{color:#111A1D;font-weight:700}
+
+.pnote{margin-top:13px;padding:9px 12px;border:1px solid #A9B3B2;border-radius:3px}
+.pn-h{font-size:9.5px;font-weight:700;letter-spacing:.1em;color:#104A4E;text-transform:uppercase}
+.pnote p{font-size:11px;line-height:1.55;color:#26302F;margin-top:4px}
+.pnote b{color:#111A1D}
 
 /* ---------- terms ---------- */
 .terms{margin-top:14px}
@@ -627,6 +668,7 @@ html = f"""<!doctype html><html><head><meta charset="utf-8">
   {page_head_compact("Retro-fit treads &nbsp;·&nbsp; packaging")}
   {table([FAMILIES[2], FAMILIES[3]])}
   {WRAP_NOTE}
+  {PRICE_NOTE}
   {foot(3, TOTAL)}
 </div>
 
