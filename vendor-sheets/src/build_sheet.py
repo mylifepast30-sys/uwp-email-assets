@@ -261,7 +261,7 @@ PARTIES = f'''
           Acct 130 · Branch HOU1<br>
           T 713.462.5045 &nbsp;·&nbsp; F 713.462.5086</div>
         <div class="fills">
-          <label>BUYER<em>Andy Tong</em></label>
+          <label>BUYER<em></em></label>
           <label>ORDER DATE<em></em></label>
           <label>REQ'D SHIP DATE<em></em></label>
           <label>PO / REFERENCE<em></em></label>
@@ -673,10 +673,9 @@ html = f"""<!doctype html><html><head><meta charset="utf-8">
 </div>
 
 <div class="page">
-  {page_head_compact("Freight, specification &amp; signatures")}
+  {page_head_compact("Freight &amp; specification")}
   {TERMS}
   {SPECS}
-  {SIGS}
   {foot(4, TOTAL)}
 </div>
 
