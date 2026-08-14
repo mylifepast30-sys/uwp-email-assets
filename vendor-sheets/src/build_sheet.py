@@ -134,19 +134,24 @@ FAMILIES = [
 ]
 
 
-# Unit prices carried from the Dendratec revised RFQ (PO 0000012955, 17 Jun 2026).
-# Revised right-column figures win over the printed PRICE/UOM where present.
+# Unit prices.  PO 0000013276 dated 04 Aug 2026 is the later document and wins
+# for every line it carries (all White Oak, plus 8072RO60 / 8072RO60MR).
+# Everything else comes from the revised RFQ, PO 0000012955, 17 Jun 2026,
+# taking the right-hand revised figure over the printed one where present.
 # 8071 rows were quoted "NO PLASTIC" and carry a $0.25 wrap adder.
-# Landings and 30x60 wide treads carry the handwritten $20.00 adder.
+# Landings and the 30x60 wide tread carry the handwritten $20.00 adder.
 PRICES = {
+    # --- PO 13276, 04 Aug 2026 ---
+    "8070WO42": 27.29, "8070WO48": 31.18, "8070WO60": 41.32,
+    "8070WO48MR": 39.36, "8070WO60MR": 50.70,
+    "8072WO42": 27.29, "8072WO48": 31.18, "8072WO60": 41.32,
+    "8072WO48MR": 39.36, "8072WO60MR": 50.70,
+    "8072RO60": 21.06, "8072RO60MR": 26.82,
+    # --- revised RFQ 12955, 17 Jun 2026 ---
     "8070RO42": 13.91, "8070RO48": 15.89, "8070RO60": 21.06, "8070RO72": 25.27,
     "8070RO84": 31.43, "8070RO96": 35.92, "8070RO48MR": 20.84, "8070RO60MR": 26.32,
-    "8070WO42": 26.24, "8070WO48": 29.99, "8070WO60": 39.74,
-    "8070WO48MR": 38.78, "8070WO60MR": 50.09,
     "807030RO60": 81.68, "807048RO48": 103.59, "807048WO48": 192.57,
-    "8072RO42": 13.91, "8072RO48": 15.89, "8072RO60": 21.06,
-    "8072RO48MR": 21.34, "8072RO60MR": 26.82,
-    "8072WO42": 28.71, "8072WO48": 32.81, "8072WO60": 43.48, "8072WO60MR": 50.09,
+    "8072RO42": 13.91, "8072RO48": 15.89, "8072RO48MR": 21.34,
     "807248RO48": 103.59, "807248WO48": 192.57,
     "8071RO42": 15.84, "8071RO48": 18.07, "8071WO42": 28.71, "8071WO48": 32.79,
 }
@@ -285,7 +290,7 @@ PARTIES = f'''
   </section>
   <div class="howto">
     <span class="ht-l">◀ &nbsp;<b>ANDY</b> — quantity</span>
-    <span class="ht-c">Priced from Dendratec RFQ &nbsp;·&nbsp; 17 Jun 2026 &nbsp;·&nbsp; blanks not yet quoted</span>
+    <span class="ht-c">Priced from PO 13276 &nbsp;·&nbsp; 04 Aug 2026 &nbsp;·&nbsp; blanks not yet quoted</span>
     <span class="ht-r"><b>DENDRATEC</b> — stock + unit price&nbsp; ▶</span>
   </div>'''
 
@@ -348,14 +353,15 @@ NOTES = '''
 
 PRICE_NOTE = '''
   <section class="pnote">
-    <div class="pn-h">PRICING CARRIED FROM DENDRATEC RFQ &nbsp;·&nbsp; PO 0000012955 &nbsp;·&nbsp; REVISED 17 JUN 2026</div>
-    <p>Where Dendratec entered a revised figure in the right-hand column, that figure is used.
-    The <b>8071 and 8073 reno treads carry a $0.25 plastic wrap adder</b>, as the RFQ quoted them
-    "NO PLASTIC" — 8071RO42 15.59 + .25, 8071RO48 17.82 + .25, 8071WO42 28.46 + .25,
-    8071WO48 32.54 + .25. Platform landings and the 30" × 60" wide tread carry the handwritten
-    <b>$20.00 adder</b>. Blank lines were not on the RFQ and still need quoting — all of 8073
-    (add the $0.25 wrap when quoted), the 20" and 22" wide treads, the 807230 wide treads,
-    807120RO48 and 8072WO48MR.</p>
+    <div class="pn-h">PRICING SOURCE &nbsp;·&nbsp; PO 0000013276 (04 AUG 2026) OVER RFQ 0000012955 (17 JUN 2026)</div>
+    <p><b>PO 13276 is the later document and wins wherever it carries a line</b> — all White Oak in
+    8070 and 8072, plus 8072RO60 and 8072RO60MR. It raised White Oak across the board and priced
+    8072WO48MR at 39.36, which the June RFQ left blank. All other lines come from the revised June
+    RFQ, taking Dendratec's right-hand revised figure where they entered one. The <b>8071 and 8073
+    reno treads carry a $0.25 plastic wrap adder</b>, as they were quoted "NO PLASTIC"; landings and
+    the 30" × 60" wide tread carry the handwritten <b>$20.00 adder</b>. Blank lines have never been
+    quoted — all of 8073 (add the $0.25 wrap), the 20" and 22" wide treads, the 807230 wide treads
+    and 807120RO48.</p>
   </section>'''
 
 
