@@ -115,7 +115,7 @@ FAMILIES = [
             ]),
         ]),
     dict(
-        code="8073", name="SQUARE RETRO-FIT", art=svg_retro_sq(),
+        code="8073", name="SQUARE RETRO-FIT", art=svg_retro_sq(), flag="NO TOOLING — MUST ORDER",
         spec='1" square nose &nbsp;·&nbsp; 5/8" body',
         keydim='1" square nose · 5/8" body',
         wrap=True,
@@ -153,7 +153,11 @@ PRICES = {
     "807030RO60": 81.68, "807048RO48": 103.59, "807048WO48": 192.57,
     "8072RO42": 13.91, "8072RO48": 15.89, "8072RO48MR": 21.34,
     "807248RO48": 103.59, "807248WO48": 192.57,
-    "8071RO42": 15.84, "8071RO48": 18.07, "8071WO42": 28.71, "8071WO48": 32.79,
+    "8071WO42": 28.71, "8071WO48": 32.79,
+    # --- Dendratec markup returned 15 Aug 2026 ---
+    "807020RO48": 33.35, "807030WO60": 139.08,
+    "807220RO48": 34.18, "807230RO60": 81.68, "807230WO60": 139.08,
+    "8071RO42": 16.09, "8071RO48": 18.32, "807120RO48": 24.83,
 }
 
 
@@ -172,6 +176,8 @@ def render_family(f):
         badge = '<span class="badge-new">NEW</span>'
     if f.get("wrap"):
         badge += '<span class="badge-wrap">WRAP REQ\'D</span>'
+    if f.get("flag"):
+        badge += f'<span class="badge-flag">{f["flag"]}</span>'
     rows.append(f'''
     <tr class="fam"><td colspan="6">
       <div class="famrow">
@@ -353,15 +359,13 @@ NOTES = '''
 
 PRICE_NOTE = '''
   <section class="pnote">
-    <div class="pn-h">PRICING SOURCE &nbsp;·&nbsp; PO 0000013276 (04 AUG 2026) OVER RFQ 0000012955 (17 JUN 2026)</div>
-    <p><b>PO 13276 is the later document and wins wherever it carries a line</b> — all White Oak in
-    8070 and 8072, plus 8072RO60 and 8072RO60MR. It raised White Oak across the board and priced
-    8072WO48MR at 39.36, which the June RFQ left blank. All other lines come from the revised June
-    RFQ, taking Dendratec's right-hand revised figure where they entered one. The <b>8071 and 8073
-    reno treads carry a $0.25 plastic wrap adder</b>, as they were quoted "NO PLASTIC"; landings and
-    the 30" × 60" wide tread carry the handwritten <b>$20.00 adder</b>. Blank lines have never been
-    quoted — all of 8073 (add the $0.25 wrap), the 20" and 22" wide treads, the 807230 wide treads
-    and 807120RO48.</p>
+    <div class="pn-h">PRICING SOURCE &nbsp;·&nbsp; DENDRATEC MARKUP 15 AUG 2026 &nbsp;·&nbsp; PO 13276 &nbsp;·&nbsp; RFQ 12955</div>
+    <p>Dendratec's <b>15 Aug markup</b> adds the wide treads and landings and revises the 8071
+    red oak — 8071RO42 to 16.09, 8071RO48 to 18.32, and 807120RO48 at 24.83. <b>PO 13276 (04 Aug)</b>
+    governs all White Oak in 8070 and 8072 plus 8072RO60 and 8072RO60MR; every other line comes from
+    the revised <b>June RFQ 12955</b>. Landings and the 30" × 60" wide treads include the $20.00
+    adder, and the 8071 reno treads are priced with plastic wrap in. <b>8073 remains unpriced —
+    Dendratec do not hold the tooling and would have to order it.</b></p>
   </section>'''
 
 
@@ -556,6 +560,9 @@ svg.pf{width:100px;height:37px;display:block}
 .famspec{font-size:13.1px;color:#333D3D;margin-top:1.5px;letter-spacing:.03em}
 .cont{margin-left:11px;font-size:11.4px;letter-spacing:.14em;text-transform:uppercase;
       color:#46514F;font-weight:600}
+.badge-flag{margin-left:9px;color:#111A1D;border:1.4px solid #111A1D;font-size:8.3px;
+            font-weight:700;letter-spacing:.11em;padding:1.5px 6px;border-radius:2px;
+            white-space:nowrap}
 .badge-wrap{margin-left:9px;color:#26302F;border:1px solid #7A8483;font-size:12.1px;
             font-weight:700;letter-spacing:.12em;padding:1.5px 6px;border-radius:2px}
 
