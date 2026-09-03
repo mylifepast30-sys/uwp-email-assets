@@ -1,0 +1,12 @@
+Subject: {{project_or_profile}}, quoted
+
+{{first_name}},
+
+Following up with the one-page capability sheet attached.
+
+I looked at {{project_or_profile}}. That is the kind of package where the lineal profile eats the moulder for a week. We would take the casing, base, and crown off your floor: knife ground to the detail, sample stick to you first, run in the specified species, pallet to your dock.
+
+Send the profile drawing and a rough footage and I will have a number and a lead time back to you the same day.
+
+{{rep_name}}
+{{rep_phone}} · {{rep_email}}
