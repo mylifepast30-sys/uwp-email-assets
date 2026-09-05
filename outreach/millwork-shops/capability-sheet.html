@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>UWP Capability Sheet · Millwork Shops</title>
+<!--
+  One-page capability sheet, 8.5 × 11 in, single-sided.
+  Print to PDF at 100% scale, no margins (the page sets its own).
+  File name for release: UWP_CapabilitySheet_MillworkShops_YYMMDD_v01.pdf
+  Brand Standard v7: pure white technical field, Outfit body, Cormorant display only, teal footer with quarter-year stamp.
+-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,500&family=Outfit:wght@300;400;500;600;700&display=swap">
+<style>
+  @page { size: 8.5in 11in; margin: 0; }
+  :root{
+    --teal:#124E53; --teal-dark:#093A3E; --warm-white:#F7F4EF; --soft-black:#212223;
+    --gold:#C9A96E; --stone:#A89F91; --white:#FFFFFF; --earth-light:#E8D5B0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#D9D4CB}
+  body{font-family:"Outfit",Inter,Arial,sans-serif;color:var(--soft-black);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .sheet{
+    width:8.5in;height:11in;margin:0 auto;background:var(--white);position:relative;
+    display:grid;grid-template-rows:auto 1fr auto;
+  }
+  @media print{ html,body{background:var(--white)} .sheet{margin:0;box-shadow:none} }
+  @media screen{ .sheet{margin:24px auto;box-shadow:0 8px 30px rgba(0,0,0,.18)} }
+
+  /* header */
+  .head{padding:.5in .6in .3in;display:grid;grid-template-columns:1fr auto;align-items:end;border-bottom:2pt solid var(--gold)}
+  .wordmark{font-weight:600;font-size:13pt;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);line-height:1.1}
+  .wordmark small{display:block;font-weight:500;font-size:9pt;letter-spacing:.08em}
+  .tag{font-weight:500;font-size:8.5pt;letter-spacing:.13em;text-transform:uppercase;color:var(--stone)}
+  .doc{font-size:8.5pt;color:var(--stone);text-align:right;line-height:1.5}
+  .doc b{font-weight:500;color:var(--soft-black)}
+
+  /* body */
+  .body{padding:.28in .6in .2in;display:grid;grid-template-columns:1.15fr .85fr;gap:.32in;align-content:start}
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;font-style:italic;font-size:26pt;line-height:1.05;margin:0 0 8pt;color:var(--soft-black);grid-column:1/-1;max-width:7in}
+  .lede{grid-column:1/-1;font-size:10pt;line-height:1.5;color:#4A5258;margin:0 0 6pt;max-width:6.6in}
+  .eyebrow{font-weight:700;font-size:8pt;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin:0 0 6pt}
+  .col{display:flex;flex-direction:column;gap:12pt}
+
+  .spec{width:100%;border-collapse:collapse;font-size:9pt}
+  .spec th{text-align:left;font-weight:700;font-size:7.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--warm-white);background:var(--teal);padding:5pt 8pt}
+  .spec td{padding:5.5pt 8pt;border-bottom:1px solid var(--earth-light);vertical-align:top;line-height:1.35}
+  .spec td:first-child{font-weight:500;white-space:nowrap;width:1.35in}
+
+  .steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:6pt}
+  .steps li{border-top:2pt solid var(--teal);padding-top:5pt;font-size:8.5pt;line-height:1.35}
+  .steps .n{font-family:"Cormorant Garamond",Georgia,serif;font-size:16pt;line-height:1;color:var(--gold);display:block;margin-bottom:2pt}
+  .steps b{font-weight:600;display:block;margin-bottom:1pt}
+
+  .who{display:grid;grid-template-columns:1fr 1fr;gap:8pt 12pt}
+  .who div{border-left:2pt solid var(--gold);padding-left:8pt;font-size:8.5pt;line-height:1.35}
+  .who b{font-weight:600;display:block}
+
+  .photo{border:1px solid var(--earth-light);background:var(--warm-white);aspect-ratio:4/3;display:grid;place-items:center;text-align:center;color:var(--stone);font-size:8pt;letter-spacing:.06em;text-transform:uppercase;padding:12pt}
+  .cap{font-size:7.5pt;color:var(--stone);margin-top:3pt}
+
+  .ask{background:var(--warm-white);border:1px solid var(--earth-light);padding:10pt 12pt;font-size:9.5pt;line-height:1.45}
+  .ask b{font-weight:600}
+  .ask .url{font-weight:500;color:var(--teal)}
+
+  /* footer */
+  .foot{background:var(--teal);color:var(--warm-white);padding:.18in .6in;display:grid;grid-template-columns:1fr auto;align-items:center;font-size:8.5pt;line-height:1.5}
+  .foot .t{font-weight:500;letter-spacing:.13em;text-transform:uppercase;font-size:8pt}
+  .foot .stamp{text-align:right;color:var(--gold);font-weight:500;letter-spacing:.08em;font-size:8pt}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <header class="head">
+    <div>
+      <div class="wordmark">Unique<small>Wood Products</small></div>
+      <div class="tag" style="margin-top:6pt">Moulding · Stair Parts · Millwork</div>
+    </div>
+    <div class="doc"><b>Capability sheet</b><br>Architectural millwork shops<br>NW Houston / Tanner Rd</div>
+  </header>
+
+  <main class="body">
+    <h1>The moulding run behind your millwork package.</h1>
+    <p class="lede">Unique Wood Products runs the lineal profile so your floor stays on the casework. Knife ground in-house from your drawing, sample, or photo. Run in the species on the finish schedule. Sample stick before the run. Palletized LTL freight to your dock.</p>
+
+    <div class="col">
+      <div>
+        <p class="eyebrow">Supply</p>
+        <table class="spec">
+          <thead><tr><th>Line</th><th>What ships</th></tr></thead>
+          <tbody>
+            <tr><td>Custom mouldings</td><td>Designer-drawn cornice, casing, base, crown, chair rail, and panel mould. Knife ground to the detail, sample stick approved by your shop before the run.</td></tr>
+            <tr><td>Matched profiles</td><td>Match-to-existing from a cut-off, drawing, or photo with a rule in frame. Common on club and hotel renovations.</td></tr>
+            <tr><td>Stock profiles</td><td>Baseboard, casing, crown, cove, chair rail, panel mould, shoe, quarter round, flooring transitions. On the shelf at Tanner Rd.</td></tr>
+            <tr><td>S4S / S3S stock</td><td>Surfaced hardwood dimension stock and trim boards, sized for the shop.</td></tr>
+            <tr><td>Stair parts</td><td>Solid hardwood treads and landings, balusters, newels, handrail and fittings, brackets, hardware.</td></tr>
+            <tr><td>Species</td><td>White oak, red oak, hickory, maple, walnut, alder, poplar. Others on request. Paint-grade poplar or primed finger-jointed pine.</td></tr>
+            <tr><td>Material</td><td>Solid kiln-dried hardwood. Never veneered. Moisture reading on the run on request.</td></tr>
+            <tr><td>Documentation</td><td>Profile drawing, species, and PO tag on every bundle. Cut sheets for the submittal on request.</td></tr>
+            <tr><td>Freight</td><td>Crated and palletized LTL, quoted per order by pallet count and zip. Will-call at Tanner Rd for Texas shops.</td></tr>
+            <tr><td>Terms</td><td>Cash trade account opened online in minutes. Net terms by application.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <p class="eyebrow">Drawing to pallet</p>
+        <ol class="steps">
+          <li><span class="n">1</span><b>Send the profile</b>DWG, PDF, sample, or photo. Species, footage, due date.</li>
+          <li><span class="n">2</span><b>Quote</b>Priced to your account. Lead time confirmed. Freight quoted.</li>
+          <li><span class="n">3</span><b>Knife and sample</b>Ground in-house. Sample stick out for approval.</li>
+          <li><span class="n">4</span><b>The run</b>Kiln-dried hardwood, inspected, bundled, tagged to PO.</li>
+          <li><span class="n">5</span><b>Freight</b>Palletized LTL to your dock or the jobsite.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="col">
+      <div>
+        <div class="photo">Photo: moulder outfeed, white oak crown run<br>(figure 1)</div>
+        <div class="cap">Fig. 1 · NW Houston / Tanner Rd mill. Photo: Unique Wood Products.</div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Who we supply</p>
+        <div class="who">
+          <div><b>Architectural woodwork firms</b>Lobbies, boardrooms, libraries, paneled rooms.</div>
+          <div><b>Hospitality casework fabricators</b>Guestroom, corridor, and public-space packages by the pallet.</div>
+          <div><b>Luxury residential joinery</b>Estate work where the architect drew every cornice.</div>
+          <div><b>Stair and rail companies</b>Treads, balusters, newels, rail, and stair mouldings.</div>
+        </div>
+      </div>
+
+      <div class="ask">
+        <b>Start with one profile.</b> Send the drawing and the lineal footage for the run you would rather not run next week. You get a quote, a lead time, and a freight number by return.<br>
+        <span class="url">uniquewoodproducts.com/millwork-shops</span><br>
+        orders@uniquewoodproducts.com · (713) 462-5045
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div><span class="t">Moulding · Stair Parts · Millwork</span><br>Unique Wood Products · 9915 Tanner Rd, Houston, TX 77041 · Family-operated since 1988</div>
+    <div class="stamp">Q3 · 2026</div>
+  </footer>
+</div>
+</body>
+</html>
